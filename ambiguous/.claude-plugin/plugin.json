@@ -1,0 +1,11 @@
+{
+  "name": "ambiguous",
+  "description": "Control an Ambiguous Workspace — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, chat — from Claude. Bundles the `ambiguous` CLI skill and the workspace MCP server.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ambiguous AI",
+    "email": "support@ambiguous.io"
+  },
+  "homepage": "https://ambi.cc",
+  "repository": "https://github.com/ambiguous-ai/claude-plugin"
+}

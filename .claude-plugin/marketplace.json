@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ambiguous",
+  "owner": {
+    "name": "Ambiguous AI",
+    "email": "support@ambiguous.io"
+  },
+  "description": "The Ambiguous Workspace plugin — skill + CLI + MCP for human + AI teammates.",
+  "plugins": [
+    {
+      "name": "ambiguous",
+      "source": "./ambiguous",
+      "description": "Control an Ambiguous Workspace — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, chat — from Claude. Bundles the `ambiguous` CLI skill and the workspace MCP server.",
+      "version": "0.1.0",
+      "category": "external-integrations",
+      "tags": [
+        "productivity",
+        "crm",
+        "tasks",
+        "docs",
+        "wiki",
+        "calendar",
+        "mail",
+        "chat",
+        "workspace",
+        "mcp"
+      ]
+    }
+  ]
+}
