@@ -2,7 +2,7 @@
   "mcpServers": {
     "ambiguous": {
       "type": "http",
-      "url": "https://app.ambi.cc/mcp"
+      "url": "https://app.ambiguous.ai/mcp"
     }
   }
 }

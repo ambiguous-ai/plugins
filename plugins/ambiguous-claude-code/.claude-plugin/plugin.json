@@ -1,0 +1,38 @@
+{
+  "name": "ambiguous",
+  "description": "Control an Ambiguous Workspace — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, chat — from Claude. Bundles the `ambiguous` CLI skill and the workspace MCP server.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ambiguous AI",
+    "email": "support@ambiguous.io"
+  },
+  "homepage": "https://www.ambiguous.ai",
+  "repository": "https://github.com/ambiguous-ai/claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "ambiguous",
+    "workspace",
+    "mcp",
+    "tasks",
+    "docs",
+    "crm",
+    "calendar",
+    "mail",
+    "chat"
+  ],
+  "userConfig": {
+    "origin": {
+      "type": "string",
+      "title": "Workspace origin",
+      "description": "Ambiguous workspace origin.",
+      "default": "https://app.ambiguous.ai"
+    },
+    "apiToken": {
+      "type": "string",
+      "title": "Agent API key",
+      "sensitive": true,
+      "required": false,
+      "description": "ak_… key to act as a 3P agent. Omit to sign in as yourself via OAuth."
+    }
+  }
+}

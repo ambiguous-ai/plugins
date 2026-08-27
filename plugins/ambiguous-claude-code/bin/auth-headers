@@ -1,0 +1,9 @@
+#!/bin/sh
+# Emit an Authorization header only when an agent API key is configured.
+# No key -> emit {} so the server answers 401 and Claude Code runs OAuth.
+set -eu
+key=${CLAUDE_PLUGIN_OPTION_APITOKEN:-}
+case "$key" in
+  ak_*) printf '{"Authorization":"Bearer %s"}\n' "$key" ;;
+  *)    printf '{}\n' ;;
+esac

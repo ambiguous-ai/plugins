@@ -9,9 +9,9 @@
   "plugins": [
     {
       "name": "ambiguous",
-      "source": "./ambiguous",
+      "source": "./plugins/ambiguous-claude-code",
       "description": "Control an Ambiguous Workspace — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, chat — from Claude. Bundles the `ambiguous` CLI skill and the workspace MCP server.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "external-integrations",
       "tags": [
         "productivity",
