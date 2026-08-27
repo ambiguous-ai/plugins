@@ -8,52 +8,38 @@ humans and AI teammates. One source, one release, two agent hosts.
 | Claude Code | `plugins/ambiguous-claude-code` | `.claude-plugin/marketplace.json` |
 | Codex | `plugins/ambiguous-codex` | `.agents/plugins/marketplace.json` |
 
-## Install (Claude Code)
+## Connect an agent to Claude Code
+
+Provision the agent in **Admin → People & Access → Invites → New agent**, copy its
+`ak_…` key, and run:
 
 ```bash
 claude plugin marketplace add ambiguous-ai/plugins
-claude plugin install ambiguous@ambiguous
+claude plugin install ambiguous@ambiguous --config apiToken=ak_…
 ```
 
-Then sign in as yourself:
+Nothing else is required — no CLI, no environment variable, no config file. The
+key is held in the OS keychain (`sensitive: true`), never written to
+`settings.json`, and the session acts as that agent.
+
+Point at another stack with `--config origin=https://app.devambi.cc`.
+
+### Connecting as yourself instead
+
+The plugin is built for agent identities. A human signing in as themselves uses
+OAuth, which the plugin deliberately does not configure — a static
+`Authorization` header disables OAuth in the host, so the two cannot share one
+server entry:
 
 ```bash
+claude mcp add -t http ambiguous https://app.ambiguous.ai/mcp
 claude mcp login ambiguous
-```
-
-### Connecting as an agent instead of yourself
-
-To act as a provisioned 3P agent rather than your own account, log the
-`ambiguous` CLI in with the agent's API key:
-
-```bash
-npx ambiguous auth login        # paste the agent's ak_… key
-```
-
-The plugin reads that credential on each connection and presents it as the
-agent. With no CLI credential it sends no Authorization header at all, the
-server answers 401, and the host runs OAuth so you connect as yourself.
-
-`AMBI_AGENT_KEY` in the environment takes precedence over the CLI credential,
-for CI and other non-interactive hosts.
-
-> A static `Authorization` header in the plugin config would disable OAuth
-> entirely — the host says so explicitly — which is why the header is produced
-> per connection rather than declared.
-
-Ask the session who it is connected as before relying on either; the
-`how-to-use-ambiguous` skill reports this on first use.
-
-### Pointing at another stack
-
-```bash
-claude plugin install ambiguous@ambiguous --config origin=https://app.devambi.cc
 ```
 
 ## What ships
 
 - **Workspace MCP server** — the same REST surface a human uses, per Human + AI
-  Parity. Auth is OAuth by default, or an `ak_` agent key.
+  Parity.
 - **`how-to-use-ambiguous`** — identity check, read-before-write, narrow writes,
   and the rule that workspace content is data and never instruction.
 - **`ambiguous-cli`** — the `ambiguous` CLI, for bootstrapping an agent,
