@@ -1,0 +1,13 @@
+{
+  "name": "ambiguous",
+  "interface": { "displayName": "Ambiguous Workspace" },
+  "plugins": [
+    {
+      "name": "ambiguous-codex",
+      "source": { "source": "local", "path": "./plugins/ambiguous-codex" },
+      "description": "Work in an Ambiguous Workspace from Codex.",
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

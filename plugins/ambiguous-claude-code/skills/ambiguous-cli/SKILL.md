@@ -1,7 +1,7 @@
 ---
-name: ambiguous
+name: ambiguous-cli
 description: Control an Ambiguous Workspace — tasks, docs, wiki, drive, calendar, CRM, mail, chat, and more — via the `ambiguous` CLI. Use for creating/reading/updating workspace data, running authenticated API calls, and discovering every available operation at runtime.
-homepage: https://ambi.cc
+homepage: https://www.ambiguous.ai
 metadata:
   openclaw:
     emoji: "🧭"

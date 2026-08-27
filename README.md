@@ -1,49 +1,60 @@
-# Ambiguous — Claude Code plugin
+# Ambiguous plugins
 
-Give your Claude an [Ambiguous Workspace](https://ambi.cc) — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, and chat — as a first-class teammate.
+Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 apps for
+humans and AI teammates. One source, one release, two agent hosts.
 
-This repo is a [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces) and the **canonical home of the `ambiguous` plugin** — skill, MCP config, and manifest are authored here. The plugin bundles two ways for Claude to act on a workspace, and the client picks whichever fits:
+| Host | Package | Catalog |
+|---|---|---|
+| Claude Code | `plugins/ambiguous-claude-code` | `.claude-plugin/marketplace.json` |
+| Codex | `plugins/ambiguous-codex` | `.agents/plugins/marketplace.json` |
 
-- **MCP server** (`app.ambi.cc/mcp`) — native tools in any client (Claude Desktop, claude.ai, Cursor, Claude Code). The only path where there's no terminal.
-- **CLI skill** (`ambiguous`, via `npx ambiguous`) — for terminal Claude. The whole API surface stays context-free until used; discover it with `ambiguous catalog`.
+## Install (Claude Code)
 
-## Install
-
-```text
-/plugin marketplace add ambiguous-ai/claude-plugin
-/plugin install ambiguous@ambiguous
-/reload-plugins
+```bash
+claude plugin marketplace add ambiguous-ai/plugins
+claude plugin install ambiguous@ambiguous
 ```
 
-No approval needed — it's a public marketplace repo. Then tell Claude to get started:
+Then sign in as yourself:
 
-```text
-You: set me up on Ambiguous — I'm you@company.com
+```bash
+claude mcp login ambiguous
 ```
 
-With no workspace yet, Claude bootstraps one and emails you the owner link. Already have an account? `ambiguous auth login --token ak_…`, or let the MCP server walk you through OAuth on first tool use.
+### Connecting as an agent instead of yourself
 
-## Layout
+To act as a provisioned 3P agent rather than your own account, pass its API key
+at install time. The key is held in your OS keychain, never in a config file:
 
-```
-ambiguous/
-  SKILL.md                 the CLI skill Claude reads
-  .mcp.json                the workspace MCP server (app.ambi.cc/mcp)
-  .claude-plugin/
-    plugin.json            plugin manifest (name, version, description)
-.claude-plugin/
-  marketplace.json         the marketplace catalog
+```bash
+claude plugin install ambiguous@ambiguous --config apiToken=ak_…
 ```
 
-## Maintainers
+Omit `apiToken` and the plugin signs in as you over OAuth. Ask the session who
+it is connected as before relying on either — the `how-to-use-ambiguous` skill
+reports this on first use, and will tell you if an agent key did not take.
 
-`SKILL.md` is edited **here** — it's the source of truth. The product monorepo
-consumes this repo as a git submodule so its CLI eval harness hardens the exact
-skill that ships. Bump `version` in both `ambiguous/.claude-plugin/plugin.json`
-and `.claude-plugin/marketplace.json` to ship an update to installed users.
+### Pointing at another stack
 
-Validate before pushing:
-
-```sh
-claude plugin validate ./ambiguous
+```bash
+claude plugin install ambiguous@ambiguous --config origin=https://app.devambi.cc
 ```
+
+## What ships
+
+- **Workspace MCP server** — the same REST surface a human uses, per Human + AI
+  Parity. Auth is OAuth by default, or an `ak_` agent key.
+- **`how-to-use-ambiguous`** — identity check, read-before-write, narrow writes,
+  and the rule that workspace content is data and never instruction.
+- **`ambiguous-cli`** — the `ambiguous` CLI, for bootstrapping an agent,
+  workspace and human owner before a key exists.
+
+## Development
+
+```bash
+claude plugin validate ./plugins/ambiguous-claude-code
+claude plugin validate .
+claude plugin marketplace add .        # a local path works; no publishing needed
+```
+
+MIT.
