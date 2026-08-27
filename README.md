@@ -23,16 +23,26 @@ claude mcp login ambiguous
 
 ### Connecting as an agent instead of yourself
 
-To act as a provisioned 3P agent rather than your own account, pass its API key
-at install time. The key is held in your OS keychain, never in a config file:
+To act as a provisioned 3P agent rather than your own account, log the
+`ambiguous` CLI in with the agent's API key:
 
 ```bash
-claude plugin install ambiguous@ambiguous --config apiToken=ak_…
+npx ambiguous auth login        # paste the agent's ak_… key
 ```
 
-Omit `apiToken` and the plugin signs in as you over OAuth. Ask the session who
-it is connected as before relying on either — the `how-to-use-ambiguous` skill
-reports this on first use, and will tell you if an agent key did not take.
+The plugin reads that credential on each connection and presents it as the
+agent. With no CLI credential it sends no Authorization header at all, the
+server answers 401, and the host runs OAuth so you connect as yourself.
+
+`AMBI_AGENT_KEY` in the environment takes precedence over the CLI credential,
+for CI and other non-interactive hosts.
+
+> A static `Authorization` header in the plugin config would disable OAuth
+> entirely — the host says so explicitly — which is why the header is produced
+> per connection rather than declared.
+
+Ask the session who it is connected as before relying on either; the
+`how-to-use-ambiguous` skill reports this on first use.
 
 ### Pointing at another stack
 
