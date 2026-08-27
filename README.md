@@ -27,7 +27,23 @@ keychain (`sensitive: true`) and never written to `settings.json`.
 
 Point either at another stack with `--config origin=https://app.devambi.cc`.
 
-## Why two plugins rather than one with an optional key
+## Codex
+
+```bash
+codex plugin marketplace add ambiguous-ai/plugins
+codex plugin add ambiguous-codex@ambiguous-plugins
+export AMBI_AGENT_KEY=ak_…        # add to your shell profile
+```
+
+Codex reads the token from the environment, so its config file holds only the
+variable name — never the key. One plugin covers both identities there: with
+`AMBI_AGENT_KEY` unset it makes no authenticated call, and `codex mcp login`
+handles OAuth.
+
+Codex does **not** substitute `${user_config.*}` — that is Claude Code only —
+so its `.mcp.json` carries a literal URL.
+
+## Why two Claude Code plugins rather than one with an optional key
 
 The host disables OAuth entirely when `headers.Authorization` is set, and an
 unset option is substituted as an *empty* header rather than omitting it — so a

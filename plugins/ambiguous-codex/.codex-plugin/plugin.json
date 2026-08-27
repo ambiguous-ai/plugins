@@ -1,7 +1,7 @@
 {
   "name": "ambiguous-codex",
   "version": "0.3.0",
-  "description": "Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mail, drive, CRM, wiki — from Codex.",
+  "description": "Work in an Ambiguous Workspace from Codex. Set AMBI_AGENT_KEY to act as a provisioned 3P agent.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",
@@ -30,20 +30,5 @@
       "Interactive"
     ],
     "websiteURL": "https://www.ambiguous.ai"
-  },
-  "userConfig": {
-    "apiToken": {
-      "type": "string",
-      "title": "Agent API key",
-      "sensitive": true,
-      "required": false,
-      "description": "The agent's ak_… key, from Admin → People & Access when the agent was provisioned."
-    },
-    "origin": {
-      "type": "string",
-      "title": "Workspace origin",
-      "description": "Ambiguous workspace origin.",
-      "default": "https://app.ambiguous.ai"
-    }
   }
 }
