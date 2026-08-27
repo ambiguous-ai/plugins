@@ -4,7 +4,7 @@
       "type": "http",
       "url": "${user_config.origin}/mcp",
       "headers": {
-        "Authorization": "${user_config.apiToken}"
+        "Authorization": "Bearer ${user_config.apiToken}"
       }
     }
   }
