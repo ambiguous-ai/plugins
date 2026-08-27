@@ -21,10 +21,17 @@
     "chat"
   ],
   "userConfig": {
+    "apiToken": {
+      "type": "string",
+      "title": "Agent API key",
+      "sensitive": true,
+      "required": true,
+      "description": "The agent's ak_… key, from Admin → People & Access when the agent was provisioned."
+    },
     "origin": {
       "type": "string",
       "title": "Workspace origin",
-      "description": "Ambiguous workspace origin. Defaults to production.",
+      "description": "Ambiguous workspace origin.",
       "default": "https://app.ambiguous.ai"
     }
   }

@@ -3,7 +3,7 @@
     "ambiguous": {
       "type": "http",
       "url": "${user_config.origin}/mcp",
-      "headersHelper": "/bin/sh \"${CLAUDE_PLUGIN_ROOT}/bin/auth-headers\""
+      "headers": { "Authorization": "Bearer ${user_config.apiToken}" }
     }
   }
 }

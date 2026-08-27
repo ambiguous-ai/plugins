@@ -21,10 +21,9 @@ Call `get_current_workspace` before the first workspace action of a session.
   in. Ask the user to run `claude mcp login ambiguous` and continue in a new
   chat. Do not search the repo. Do not retry.
 
-**If the user expected an agent identity but it comes back as themselves,
-stop and say so.** They intended to act as the agent and are not. The agent
-identity comes from the `ambiguous` CLI's stored credential — `ambiguous auth
-login` with the agent's `ak_` key, then a new session.
+**If the identity is not the agent the user expected, stop and say so** rather
+than working as whoever you are. Reinstalling with the right key is the fix:
+`claude plugin install ambiguous@ambiguous --config apiToken=ak_…`.
 
 ## 2. Read before you write
 
