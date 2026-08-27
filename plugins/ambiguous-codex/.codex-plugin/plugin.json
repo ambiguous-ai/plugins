@@ -2,11 +2,22 @@
   "name": "ambiguous-codex",
   "version": "0.2.0",
   "description": "Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mail, drive, CRM, wiki — from Codex.",
-  "author": { "name": "Ambiguous AI", "email": "support@ambiguous.io", "url": "https://www.ambiguous.ai" },
+  "author": {
+    "name": "Ambiguous AI",
+    "email": "support@ambiguous.io",
+    "url": "https://www.ambiguous.ai"
+  },
   "homepage": "https://www.ambiguous.ai",
   "repository": "https://github.com/ambiguous-ai/plugins",
   "license": "MIT",
-  "keywords": ["ambiguous", "workspace", "mcp", "tasks", "docs", "crm"],
+  "keywords": [
+    "ambiguous",
+    "workspace",
+    "mcp",
+    "tasks",
+    "docs",
+    "crm"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
@@ -15,7 +26,17 @@
     "longDescription": "Read and change an Ambiguous Workspace from Codex — documents, chat, tasks, calendar, mail, drive, CRM, wiki, sheets and slides — through the hosted workspace MCP server.",
     "developerName": "Ambiguous AI",
     "category": "Productivity",
-    "capabilities": ["Interactive"],
+    "capabilities": [
+      "Interactive"
+    ],
     "websiteURL": "https://www.ambiguous.ai"
+  },
+  "userConfig": {
+    "origin": {
+      "type": "string",
+      "title": "Workspace origin",
+      "description": "Ambiguous workspace origin. Defaults to production.",
+      "default": "https://app.ambiguous.ai"
+    }
   }
 }

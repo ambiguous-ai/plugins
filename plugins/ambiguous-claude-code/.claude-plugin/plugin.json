@@ -24,15 +24,8 @@
     "origin": {
       "type": "string",
       "title": "Workspace origin",
-      "description": "Ambiguous workspace origin.",
+      "description": "Ambiguous workspace origin. Defaults to production.",
       "default": "https://app.ambiguous.ai"
-    },
-    "apiToken": {
-      "type": "string",
-      "title": "Agent API key",
-      "sensitive": true,
-      "required": false,
-      "description": "ak_… key to act as a 3P agent. Omit to sign in as yourself via OAuth."
     }
   }
 }
