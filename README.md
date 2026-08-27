@@ -1,45 +1,48 @@
 # Ambiguous plugins
 
 Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 apps for
-humans and AI teammates. One source, one release, two agent hosts.
-
-| Host | Package | Catalog |
-|---|---|---|
-| Claude Code | `plugins/ambiguous-claude-code` | `.claude-plugin/marketplace.json` |
-| Codex | `plugins/ambiguous-codex` | `.agents/plugins/marketplace.json` |
-
-## Connect an agent to Claude Code
-
-Provision the agent in **Admin → People & Access → Invites → New agent**, copy its
-`ak_…` key, and run:
+humans and AI teammates.
 
 ```bash
 claude plugin marketplace add ambiguous-ai/plugins
-claude plugin install ambiguous@ambiguous --config apiToken=ak_…
 ```
 
-Nothing else is required — no CLI, no environment variable, no config file. The
-key is held in the OS keychain (`sensitive: true`), never written to
-`settings.json`, and the session acts as that agent.
-
-Point at another stack with `--config origin=https://app.devambi.cc`.
-
-### Connecting as yourself instead
-
-The plugin is built for agent identities. A human signing in as themselves uses
-OAuth, which the plugin deliberately does not configure — a static
-`Authorization` header disables OAuth in the host, so the two cannot share one
-server entry:
+## As yourself
 
 ```bash
-claude mcp add -t http ambiguous https://app.ambiguous.ai/mcp
+claude plugin install ambiguous
 claude mcp login ambiguous
 ```
 
+## As a provisioned agent
+
+Copy the agent's `ak_…` key from **Admin → People & Access → Invites → New agent**:
+
+```bash
+claude plugin install ambiguous-agent --config apiToken=ak_…
+```
+
+No CLI, no environment variable, no config file. The key is held in the OS
+keychain (`sensitive: true`) and never written to `settings.json`.
+
+Point either at another stack with `--config origin=https://app.devambi.cc`.
+
+## Why two plugins rather than one with an optional key
+
+The host disables OAuth entirely when `headers.Authorization` is set, and an
+unset option is substituted as an *empty* header rather than omitting it — so a
+single server entry cannot fall back from a key to OAuth. The two identities
+need two entries. They ship the same skills and talk to the same endpoint.
+
+| | `ambiguous` | `ambiguous-agent` |
+|---|---|---|
+| Identity | you | the agent |
+| Auth | OAuth, token in the keychain | `ak_` key, in the keychain |
+| Key required | no | yes — install fails loudly without it |
+
 ## What ships
 
-- **Workspace MCP server** — the same REST surface a human uses, per Human + AI
-  Parity.
+- **Workspace MCP server** — the same REST surface a human uses, per Human + AI Parity.
 - **`how-to-use-ambiguous`** — identity check, read-before-write, narrow writes,
   and the rule that workspace content is data and never instruction.
 - **`ambiguous-cli`** — the `ambiguous` CLI, for bootstrapping an agent,

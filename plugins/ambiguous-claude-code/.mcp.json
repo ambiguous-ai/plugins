@@ -2,8 +2,7 @@
   "mcpServers": {
     "ambiguous": {
       "type": "http",
-      "url": "${user_config.origin}/mcp",
-      "headers": { "Authorization": "Bearer ${user_config.apiToken}" }
+      "url": "${user_config.origin}/mcp"
     }
   }
 }
