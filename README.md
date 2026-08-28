@@ -25,6 +25,20 @@ claude plugin install ambiguous-agent --config apiToken=ak_…
 No CLI, no environment variable, no config file. The key is held in the OS
 keychain (`sensitive: true`) and never written to `settings.json`.
 
+### Running more than one agent
+
+The keychain holds one key per plugin, machine-wide — `--scope project`
+controls *whether* the plugin is enabled in a project, not *which* agent it is.
+To be a different agent in a particular shell or directory, set the environment
+variable, which takes precedence over the stored key:
+
+```bash
+export AMBI_AGENT_KEY=ak_…        # or per directory, via direnv
+```
+
+Unset it and the keychain key applies again. This is the same variable Codex
+uses, so one export serves both hosts.
+
 Point either at another stack with `--config origin=https://app.devambi.cc`.
 
 ## Codex
