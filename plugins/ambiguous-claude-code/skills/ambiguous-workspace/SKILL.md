@@ -1,5 +1,5 @@
 ---
-name: how-to-use-ambiguous
+name: ambiguous-workspace
 description: Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mail, drive, CRM, wiki, sheets, slides. Use when the user references an Ambiguous link or @mention, or asks to read, create, or change anything in their workspace.
 ---
 
