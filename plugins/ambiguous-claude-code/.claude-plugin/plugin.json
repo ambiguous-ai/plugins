@@ -19,13 +19,5 @@
     "calendar",
     "mail",
     "chat"
-  ],
-  "userConfig": {
-    "origin": {
-      "type": "string",
-      "title": "Workspace origin",
-      "description": "Ambiguous workspace origin.",
-      "default": "https://app.ambiguous.ai"
-    }
-  }
+  ]
 }
