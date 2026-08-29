@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "ambiguous-plugins",
+  "name": "ambiguous-ai",
   "owner": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"

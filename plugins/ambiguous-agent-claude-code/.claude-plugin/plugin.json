@@ -27,12 +27,6 @@
       "sensitive": true,
       "required": true,
       "description": "The agent's ak_… key, shown once when it was provisioned. AMBI_AGENT_KEY in the environment overrides it."
-    },
-    "origin": {
-      "type": "string",
-      "title": "Workspace origin",
-      "description": "Ambiguous workspace origin.",
-      "default": "https://app.ambiguous.ai"
     }
   }
 }
