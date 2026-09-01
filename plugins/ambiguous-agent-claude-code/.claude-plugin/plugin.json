@@ -26,7 +26,7 @@
       "title": "Agent API key",
       "sensitive": true,
       "required": true,
-      "description": "The agent's ak_… key, shown once when it was provisioned. AMBI_AGENT_KEY in the environment overrides it."
+      "description": "The agent's ak_… key, shown once when it was provisioned. AMBI_API_TOKEN in the environment overrides it."
     }
   }
 }

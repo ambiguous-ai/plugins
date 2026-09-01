@@ -33,11 +33,12 @@ To be a different agent in a particular shell or directory, set the environment
 variable, which takes precedence over the stored key:
 
 ```bash
-export AMBI_AGENT_KEY=ak_…        # or per directory, via direnv
+export AMBI_API_TOKEN=ak_…        # or per directory, via direnv
 ```
 
-Unset it and the keychain key applies again. This is the same variable Codex
-uses, so one export serves both hosts.
+Unset it and the keychain key applies again. `AMBI_API_TOKEN` is the only
+credential variable we publish — the CLI, both plugins and every documented
+snippet read it, for humans and agents alike, so one export serves all of them.
 
 Point either at another stack with `--config origin=https://app.devambi.cc`.
 
@@ -46,12 +47,12 @@ Point either at another stack with `--config origin=https://app.devambi.cc`.
 ```bash
 codex plugin marketplace add ambiguous-ai/plugins
 codex plugin add ambiguous-codex@ambiguous-plugins
-export AMBI_AGENT_KEY=ak_…        # add to your shell profile
+export AMBI_API_TOKEN=ak_…        # add to your shell profile
 ```
 
 Codex reads the token from the environment, so its config file holds only the
 variable name — never the key. One plugin covers both identities there: with
-`AMBI_AGENT_KEY` unset it makes no authenticated call, and `codex mcp login`
+`AMBI_API_TOKEN` unset it makes no authenticated call, and `codex mcp login`
 handles OAuth.
 
 Codex does **not** substitute `${user_config.*}` — that is Claude Code only —

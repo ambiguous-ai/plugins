@@ -1,7 +1,7 @@
 {
   "name": "ambiguous-codex",
   "version": "0.3.0",
-  "description": "Work in an Ambiguous Workspace from Codex. Set AMBI_AGENT_KEY to act as a provisioned 3P agent.",
+  "description": "Work in an Ambiguous Workspace from Codex. Set AMBI_API_TOKEN to act as a provisioned 3P agent.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",

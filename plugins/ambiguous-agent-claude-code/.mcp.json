@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://app.ambiguous.ai/mcp",
       "headers": {
-        "Authorization": "Bearer ${AMBI_AGENT_KEY:-${user_config.apiToken}}"
+        "Authorization": "Bearer ${AMBI_API_TOKEN:-${user_config.apiToken}}"
       }
     }
   }
