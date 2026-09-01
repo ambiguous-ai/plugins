@@ -2,7 +2,7 @@
   "mcpServers": {
     "ambiguous": {
       "type": "http",
-      "url": "${AMBI_API_URL:-https://app.ambiguous.ai}/mcp",
+      "url": "https://app.ambiguous.ai/mcp",
       "headers": {
         "Authorization": "Bearer ${AMBI_AGENT_KEY:-${user_config.apiToken}}"
       }
