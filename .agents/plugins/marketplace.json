@@ -5,12 +5,12 @@
   },
   "plugins": [
     {
-      "name": "ambiguous-codex",
+      "name": "ambiguous",
       "source": {
         "source": "local",
         "path": "./plugins/ambiguous-codex"
       },
-      "description": "Work in an Ambiguous Workspace from Codex.",
+      "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki.",
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"

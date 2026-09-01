@@ -1,7 +1,7 @@
 {
-  "name": "ambiguous-codex",
-  "version": "0.3.0",
-  "description": "Work in an Ambiguous Workspace from Codex. Set AMBI_API_TOKEN to act as a provisioned 3P agent.",
+  "name": "ambiguous",
+  "version": "0.4.0",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki. Signs in with OAuth.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",
@@ -16,19 +16,32 @@
     "mcp",
     "tasks",
     "docs",
-    "crm"
+    "crm",
+    "calendar",
+    "mail",
+    "chat"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ambiguous Workspace",
     "shortDescription": "17 apps for humans and AI teammates.",
-    "longDescription": "Read and change an Ambiguous Workspace from Codex — documents, chat, tasks, calendar, mail, drive, CRM, wiki, sheets and slides — through the hosted workspace MCP server.",
+    "longDescription": "Read and change an Ambiguous Workspace from ChatGPT — documents, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki. Signs in as you over OAuth and acts with exactly the permissions your account already has.",
     "developerName": "Ambiguous AI",
     "category": "Productivity",
     "capabilities": [
-      "Interactive"
+      "Interactive",
+      "Write"
     ],
-    "websiteURL": "https://www.ambiguous.ai"
+    "websiteURL": "https://www.ambiguous.ai",
+    "privacyPolicyURL": "https://www.ambiguous.ai/legal/privacy",
+    "termsOfServiceURL": "https://www.ambiguous.ai/legal/terms",
+    "brandColor": "#405ef2",
+    "defaultPrompt": [
+      "What's on my Ambiguous calendar today?",
+      "Summarise my unread Ambiguous messages.",
+      "Create a task in Ambiguous and assign it."
+    ],
+    "logo": "./assets/logo.svg"
   }
 }
