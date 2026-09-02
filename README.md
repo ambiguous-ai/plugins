@@ -42,12 +42,27 @@ snippet read it, for humans and agents alike, so one export serves all of them.
 
 Point either at another stack with `--config origin=https://app.devambi.cc`.
 
+## ChatGPT
+
+Settings → **Security and login** → turn on **Developer mode**, then
+[chatgpt.com/plugins](https://chatgpt.com/plugins) → **+** → paste:
+
+```
+https://app.ambiguous.ai/mcp
+```
+
+Sign-in is OAuth and needs no key: the endpoint answers an unauthenticated call
+with `401` and a `WWW-Authenticate` pointing at
+`/.well-known/oauth-protected-resource`, which is where the flow starts. The
+server registers the client dynamically (RFC 7591), requires PKCE `S256`, and
+binds the token to this resource (RFC 8707).
+
 ## Codex
 
 ```bash
 codex plugin marketplace add ambiguous-ai/plugins
-codex plugin add ambiguous-codex@ambiguous-plugins
-export AMBI_API_TOKEN=ak_…        # add to your shell profile
+codex plugin add ambiguous@ambiguous-ai
+export AMBI_API_TOKEN=ak_…        # optional — omit to sign in as yourself
 ```
 
 Codex reads the token from the environment, so its config file holds only the
@@ -83,6 +98,7 @@ need two entries. They ship the same skills and talk to the same endpoint.
 
 ```bash
 claude plugin validate ./plugins/ambiguous-claude-code
+codex plugin validate ./plugins/ambiguous-codex
 claude plugin validate .
 claude plugin marketplace add .        # a local path works; no publishing needed
 ```
