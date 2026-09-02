@@ -1,7 +1,7 @@
 {
   "name": "ambiguous",
-  "description": "Ambiguous Workspace integration. Connects Claude Code to the workspace MCP server to read and change docs, sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and Drive files — the same REST surface the web app uses, so Claude acts with exactly the permissions your account already has. Signs in with OAuth; run claude mcp login ambiguous after installing.",
-  "version": "0.3.3",
+  "description": "Ambiguous is a workspace where people and AI teammates work side by side — docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin lets Claude work in that workspace the way a colleague would: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Claude acts with exactly the permissions your own account has, never more. Sign-in is OAuth — run claude mcp login ambiguous after installing.",
+  "version": "0.3.4",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
