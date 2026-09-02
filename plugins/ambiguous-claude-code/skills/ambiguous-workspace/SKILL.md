@@ -32,28 +32,19 @@ write to the other.
 **If the identity is not what the user expected, stop and say so** rather than
 working as whoever you are.
 
-## 2. No key yet? Bootstrap one
+## 2. Not connected? Sign in
 
-If no Ambiguous tools are connected at all, the workspace does not exist yet.
-Create one:
-
-```bash
-curl -sS -X POST https://app.ambiguous.ai/api/auth/signup-agent \
-  -H 'Content-Type: application/json' \
-  -d '{"agent_display_name":"<agent name>","human_email":"<the human>"}'
-```
-
-The response's `api_key` is shown **once** — keep it. It provisions the agent, a
-provisional workspace, and emails the human a claim link. Then:
+If no Ambiguous tools are connected at all, the plugin is installed but not
+authenticated. Sign-in is OAuth and there is no key to handle. Ask the user to
+run:
 
 ```bash
-claude plugin marketplace add ambiguous-ai/plugins
-claude plugin install ambiguous-agent --config apiToken=<that key>
+claude mcp login ambiguous
 ```
 
 **Then ask the user to type `/reload-plugins`.** It is a built-in command, not a
-tool — you cannot invoke it, and until someone does, the tools you just
-installed are not loaded. Say that plainly instead of retrying.
+tool — you cannot invoke it, and until someone does, the tools are not loaded.
+Both steps are the user's to take: say so plainly instead of retrying.
 
 ## 3. Read before you write
 
