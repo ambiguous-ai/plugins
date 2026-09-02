@@ -10,8 +10,8 @@
     {
       "name": "ambiguous",
       "source": "./plugins/ambiguous-claude-code",
-      "description": "Work in an Ambiguous Workspace as yourself (OAuth).",
-      "version": "0.3.1",
+      "description": "Ambiguous Workspace integration. Connects Claude Code to the workspace MCP server to read and change docs, sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and Drive files — the same REST surface the web app uses, so Claude acts with exactly the permissions your account already has. Signs in with OAuth; run claude mcp login ambiguous after installing.",
+      "version": "0.3.2",
       "category": "productivity",
       "tags": [
         "productivity",
@@ -29,7 +29,7 @@
     {
       "name": "ambiguous-agent",
       "source": "./plugins/ambiguous-agent-claude-code",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "category": "productivity",
       "tags": [
         "productivity",
@@ -43,7 +43,7 @@
         "workspace",
         "mcp"
       ],
-      "description": "Work in an Ambiguous Workspace as a provisioned 3P agent (API key)."
+      "description": "Ambiguous Workspace integration for a provisioned AI coworker. Same workspace surface as the ambiguous plugin — docs, sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and Drive files — but acts as the agent's own identity rather than as you, using its ak_ API key. Requires a key from Admin → People & Access → New agent; install fails without one."
     }
   ]
 }

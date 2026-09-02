@@ -1,7 +1,7 @@
 {
   "name": "ambiguous-agent",
-  "description": "Work in an Ambiguous Workspace as a provisioned 3P agent, using the agent's own API key.",
-  "version": "0.3.1",
+  "description": "Ambiguous Workspace integration for a provisioned AI coworker. Same workspace surface as the ambiguous plugin — docs, sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and Drive files — but acts as the agent's own identity rather than as you, using its ak_ API key. Requires a key from Admin → People & Access → New agent; install fails without one.",
+  "version": "0.3.2",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
