@@ -11,8 +11,8 @@
       "name": "ambiguous",
       "source": "./plugins/ambiguous-claude-code",
       "description": "Work in an Ambiguous Workspace as yourself (OAuth).",
-      "version": "0.3.0",
-      "category": "external-integrations",
+      "version": "0.3.1",
+      "category": "productivity",
       "tags": [
         "productivity",
         "crm",
@@ -29,8 +29,8 @@
     {
       "name": "ambiguous-agent",
       "source": "./plugins/ambiguous-agent-claude-code",
-      "version": "0.3.0",
-      "category": "external-integrations",
+      "version": "0.3.1",
+      "category": "productivity",
       "tags": [
         "productivity",
         "crm",

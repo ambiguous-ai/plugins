@@ -1,13 +1,13 @@
 {
   "name": "ambiguous",
   "description": "Work in an Ambiguous Workspace as yourself — tasks, docs, sheets, slides, wiki, drive, calendar, CRM, mail, chat. Signs in with OAuth.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
   },
   "homepage": "https://www.ambiguous.ai",
-  "repository": "https://github.com/ambiguous-ai/claude-plugin",
+  "repository": "https://github.com/ambiguous-ai/plugins",
   "license": "MIT",
   "keywords": [
     "ambiguous",
