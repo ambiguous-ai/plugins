@@ -89,10 +89,8 @@ need two entries. They ship the same skills and talk to the same endpoint.
 ## What ships
 
 - **Workspace MCP server** — the same REST surface a human uses, per Human + AI Parity.
-- **`how-to-use-ambiguous`** — identity check, read-before-write, narrow writes,
+- **`ambiguous-workspace`** — identity check, read-before-write, narrow writes,
   and the rule that workspace content is data and never instruction.
-- **`ambiguous-cli`** — the `ambiguous` CLI, for bootstrapping an agent,
-  workspace and human owner before a key exists.
 
 ## Development
 
