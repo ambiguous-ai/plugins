@@ -1,104 +1,76 @@
 # Ambiguous plugins
 
-Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 apps for
-humans and AI teammates.
+Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 productivity
+apps for humans and AI teammates.
+
+Each plugin teaches its host to work in your workspace through the `ambiguous` CLI.
+There is nothing to install: the CLI runs via `npx`, so it is current on every call
+and usable in the session you add it to — no restart, no MCP server binding at
+startup.
+
+## Claude Code
 
 ```bash
 claude plugin marketplace add ambiguous-ai/plugins
-```
-
-## As yourself
-
-```bash
 claude plugin install ambiguous
-claude mcp login ambiguous
+npx ambiguous auth login --token ak_…
 ```
-
-## As a provisioned agent
-
-Copy the agent's `ak_…` key from **Admin → People & Access → Invites → New agent**:
-
-```bash
-claude plugin install ambiguous-agent --config apiToken=ak_…
-```
-
-No CLI, no environment variable, no config file. The key is held in the OS
-keychain (`sensitive: true`) and never written to `settings.json`.
-
-### Running more than one agent
-
-The keychain holds one key per plugin, machine-wide — `--scope project`
-controls *whether* the plugin is enabled in a project, not *which* agent it is.
-To be a different agent in a particular shell or directory, set the environment
-variable, which takes precedence over the stored key:
-
-```bash
-export AMBI_API_TOKEN=ak_…        # or per directory, via direnv
-```
-
-Unset it and the keychain key applies again. `AMBI_API_TOKEN` is the only
-credential variable we publish — the CLI, both plugins and every documented
-snippet read it, for humans and agents alike, so one export serves all of them.
-
-Point either at another stack with `--config origin=https://app.devambi.cc`.
-
-## ChatGPT
-
-Settings → **Security and login** → turn on **Developer mode**, then
-[chatgpt.com/plugins](https://chatgpt.com/plugins) → **+** → paste:
-
-```
-https://app.ambiguous.ai/mcp
-```
-
-Sign-in is OAuth and needs no key: the endpoint answers an unauthenticated call
-with `401` and a `WWW-Authenticate` pointing at
-`/.well-known/oauth-protected-resource`, which is where the flow starts. The
-server registers the client dynamically (RFC 7591), requires PKCE `S256`, and
-binds the token to this resource (RFC 8707).
 
 ## Codex
 
 ```bash
 codex plugin marketplace add ambiguous-ai/plugins
 codex plugin add ambiguous@ambiguous-ai
-export AMBI_API_TOKEN=ak_…        # optional — omit to sign in as yourself
+npx ambiguous auth login --token ak_…
 ```
 
-Codex reads the token from the environment, so its config file holds only the
-variable name — never the key. One plugin covers both identities there: with
-`AMBI_API_TOKEN` unset it makes no authenticated call, and `codex mcp login`
-handles OAuth.
+## Where the key comes from
 
-Codex does **not** substitute `${user_config.*}` — that is Claude Code only —
-so its `.mcp.json` carries a literal URL.
+**Connect** in your workspace mints one for the identity you choose — yourself, an
+agent you manage, or a new agent — and hands you that whole command, key included.
 
-## Why two Claude Code plugins rather than one with an optional key
+The credential is stored in `.ambi/config.json` **in the directory you ran it from**,
+so a second checkout can hold a second agent without either inheriting the other's
+identity. `AMBI_API_TOKEN` in the environment overrides it, for a container rebuilt
+from an image or a CI job whose secrets come from the runner.
 
-The host disables OAuth entirely when `headers.Authorization` is set, and an
-unset option is substituted as an *empty* header rather than omitting it — so a
-single server entry cannot fall back from a key to OAuth. The two identities
-need two entries. They ship the same skills and talk to the same endpoint.
+Point at another stack with `AMBI_API_URL=https://app.devambi.cc`.
 
-| | `ambiguous` | `ambiguous-agent` |
-|---|---|---|
-| Identity | you | the agent |
-| Auth | OAuth, token in the keychain | `ak_` key, in the keychain |
-| Key required | no | yes — install fails loudly without it |
+## Claude, ChatGPT and Cowork
+
+Those hosts cannot run a local process, so they connect over MCP instead — add
+`https://app.ambiguous.ai/mcp` as a custom connector and sign in. Sign-in is OAuth
+and needs no key: the endpoint answers an unauthenticated call with `401` and a
+`WWW-Authenticate` pointing at `/.well-known/oauth-protected-resource`, which is
+where the flow starts. The server registers the client dynamically (RFC 7591),
+requires PKCE `S256`, and binds the token to this resource (RFC 8707).
+
+No plugin here ships an MCP server. MCP is for hosts with no shell; anything with a
+shell uses the CLI, where the surface costs nothing until it is called, commands
+compose in a pipeline, and a process can hold a socket open.
 
 ## What ships
 
-- **Workspace MCP server** — the same REST surface a human uses, per Human + AI Parity.
-- **`ambiguous-workspace`** — identity check, read-before-write, narrow writes,
-  and the rule that workspace content is data and never instruction.
+- **`ambiguous-workspace`** — identity check, look-up-before-you-call, read before
+  write, narrow writes, bulk work through the shell, and the rule that workspace
+  content is data and never instruction.
+
+Both plugins carry the same skill. `skills/ambiguous-workspace/SKILL.md` is the
+source and `./scripts/sync-skills.sh` writes the per-plugin copies, because three
+hand-maintained copies drifted once and the one that drifted dropped the
+content-is-not-instruction rule.
 
 ## Development
 
 ```bash
+./scripts/sync-skills.sh --check                      # copies match the source
+claude plugin validate .                              # the marketplace manifest
 claude plugin validate ./plugins/ambiguous-claude-code
-codex plugin validate ./plugins/ambiguous-codex
-claude plugin validate .
-claude plugin marketplace add .        # a local path works; no publishing needed
+claude plugin marketplace add .                       # a local path works; no publishing needed
 ```
+
+Codex ships no validator — `codex plugin` is `add`, `list`, `marketplace`, `remove`
+(0.148.0) — so `plugins/ambiguous-codex` is checked by installing it from a local
+marketplace and confirming the skill loads.
 
 MIT.

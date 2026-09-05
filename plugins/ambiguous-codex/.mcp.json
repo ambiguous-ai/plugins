@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "ambiguous": {
-      "type": "http",
-      "url": "https://app.ambiguous.ai/mcp",
-      "bearer_token_env_var": "AMBI_API_TOKEN"
-    }
-  }
-}

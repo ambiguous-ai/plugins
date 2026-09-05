@@ -1,7 +1,7 @@
 {
   "name": "ambiguous",
-  "description": "Ambiguous is a workspace where people and AI teammates work side by side — docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin lets Claude work in that workspace the way a colleague would: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Claude acts with exactly the permissions your own account has, never more. Sign-in is OAuth — run claude mcp login ambiguous after installing.",
-  "version": "0.3.4",
+  "description": "Ambiguous is a workspace where people and AI teammates work side by side \u2014 docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin teaches Claude to work in that workspace the way a colleague would, through the `ambiguous` CLI: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Nothing to install and nothing binds at startup \u2014 it runs via npx and works in the session you add it to. Claude acts with exactly the permissions the credential carries.",
+  "version": "0.4.0",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
@@ -12,12 +12,12 @@
   "keywords": [
     "ambiguous",
     "workspace",
-    "mcp",
     "tasks",
     "docs",
     "crm",
     "calendar",
     "mail",
-    "chat"
+    "chat",
+    "cli"
   ]
 }
