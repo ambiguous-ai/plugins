@@ -5,13 +5,13 @@
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
   },
-  "description": "Ambiguous Workspace — docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, for people and AI teammates.",
+  "description": "Ambiguous Workspace \u2014 docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, for people and AI teammates.",
   "plugins": [
     {
       "name": "ambiguous",
       "source": "./plugins/ambiguous-claude-code",
-      "description": "Ambiguous is a workspace where people and AI teammates work side by side — docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin lets Claude work in that workspace the way a colleague would: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Claude acts with exactly the permissions your own account has, never more. Sign-in is OAuth — run claude mcp login ambiguous after installing.",
-      "version": "0.3.4",
+      "description": "Ambiguous is a workspace where people and AI teammates work side by side \u2014 docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin teaches Claude to work in that workspace the way a colleague would, through the `ambiguous` CLI: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Nothing to install and nothing binds at startup \u2014 it runs via npx and works in the session you add it to. Claude acts with exactly the permissions the credential carries.",
+      "version": "0.4.0",
       "category": "productivity",
       "tags": [
         "productivity",
@@ -23,27 +23,8 @@
         "mail",
         "chat",
         "workspace",
-        "mcp"
+        "cli"
       ]
-    },
-    {
-      "name": "ambiguous-agent",
-      "source": "./plugins/ambiguous-agent-claude-code",
-      "version": "0.3.2",
-      "category": "productivity",
-      "tags": [
-        "productivity",
-        "crm",
-        "tasks",
-        "docs",
-        "wiki",
-        "calendar",
-        "mail",
-        "chat",
-        "workspace",
-        "mcp"
-      ],
-      "description": "Ambiguous Workspace integration for a provisioned AI coworker. Same workspace surface as the ambiguous plugin — docs, sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and Drive files — but acts as the agent's own identity rather than as you, using its ak_ API key. Requires a key from Admin → People & Access → New agent; install fails without one."
     }
   ]
 }

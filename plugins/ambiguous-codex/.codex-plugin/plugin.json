@@ -1,7 +1,7 @@
 {
   "name": "ambiguous",
-  "version": "0.4.0",
-  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki. Signs in with OAuth.",
+  "version": "0.5.0",
+  "description": "Work in an Ambiguous Workspace \u2014 docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki \u2014 through the `ambiguous` CLI. Runs via npx, so there is nothing to install and nothing to restart.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",
@@ -13,20 +13,19 @@
   "keywords": [
     "ambiguous",
     "workspace",
-    "mcp",
     "tasks",
     "docs",
     "crm",
     "calendar",
     "mail",
-    "chat"
+    "chat",
+    "cli"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ambiguous Workspace",
     "shortDescription": "17 apps for humans and AI teammates.",
-    "longDescription": "Read and change an Ambiguous Workspace from ChatGPT — documents, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki. Signs in as you over OAuth and acts with exactly the permissions your account already has.",
+    "longDescription": "Read and change an Ambiguous Workspace from Codex \u2014 documents, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki. Works through the `ambiguous` CLI over npx, so there is nothing to install and the tools are usable in the session you add them to. Acts with exactly the permissions the credential carries.",
     "developerName": "Ambiguous AI",
     "category": "Productivity",
     "capabilities": [
