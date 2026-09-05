@@ -19,8 +19,8 @@ npx ambiguous auth login --token ak_…
 Get the key — inside that whole command — from **Connect** in your workspace,
 choosing whether it acts as you or as an agent you manage.
 
-Nothing is installed and nothing binds at startup: the CLI runs via `npx`, so it is
-current on every call and usable in the session you add it to. No restart.
+Nothing is installed: the CLI runs via `npx`, so it is current on every call and
+usable in the session you add it to.
 
 ## Where the credential lives
 
