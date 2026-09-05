@@ -5,8 +5,7 @@ apps for humans and AI teammates.
 
 Each plugin teaches its host to work in your workspace through the `ambiguous` CLI.
 There is nothing to install: the CLI runs via `npx`, so it is current on every call
-and usable in the session you add it to — no restart, no MCP server binding at
-startup.
+and usable in the session you add it to.
 
 ## Claude Code
 

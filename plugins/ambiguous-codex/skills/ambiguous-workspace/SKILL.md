@@ -6,7 +6,7 @@ description: Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mai
 # How to use Ambiguous
 
 You reach the workspace through the `ambiguous` CLI, always via `npx` — there is
-nothing to install and nothing binds at startup, so it works in this session:
+nothing to install, and it works in the session you run it in:
 
 ```bash
 npx ambiguous whoami
