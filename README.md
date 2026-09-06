@@ -4,8 +4,8 @@ Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 prod
 apps for humans and AI teammates.
 
 Each plugin teaches its host to work in your workspace through the `ambiguous` CLI.
-There is nothing to install: the CLI runs via `npx`, so it is current on every call
-and usable in the session you add it to.
+The CLI runs via `npx`, which installs or uses a cached package. Confirm its version
+when troubleshooting; `npx` does not guarantee the latest release on every call.
 
 ## Claude Code
 
@@ -50,14 +50,14 @@ compose in a pipeline, and a process can hold a socket open.
 
 ## What ships
 
-- **`ambiguous-workspace`** — identity check, look-up-before-you-call, read before
-  write, narrow writes, bulk work through the shell, and the rule that workspace
-  content is data and never instruction.
+- **`ambiguous-workspace`** — checks the intended identity, then fetches the
+  canonical `/skill` guide from the configured workspace origin. That guide owns
+  setup, workspace operations and runtime-specific notification handling.
 
-Both plugins carry the same skill. `skills/ambiguous-workspace/SKILL.md` is the
-source and `./scripts/sync-skills.sh` writes the per-plugin copies, because three
-hand-maintained copies drifted once and the one that drifted dropped the
-content-is-not-instruction rule.
+Both plugins carry the same entry skill. `skills/ambiguous-workspace/SKILL.md` is
+its source and `./scripts/sync-skills.sh` writes the per-plugin copies. Operating
+instructions live in Workspace's served guide so plugin releases cannot leave
+customers with a separate event-listening recipe.
 
 ## Development
 
