@@ -15,6 +15,9 @@ claude plugin install ambiguous
 npx ambiguous auth login --token ak_…
 ```
 
+If Claude Code is already open, run `/reload-plugins` in that session to activate
+the installed skill. It is available as `/ambiguous:ambiguous-workspace`.
+
 ## Codex
 
 ```bash
