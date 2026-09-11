@@ -7,6 +7,13 @@ Each plugin teaches its host to work in your workspace through the `ambiguous` C
 The CLI runs via `npx`, which installs or uses a cached package. Confirm its version
 when troubleshooting; `npx` does not guarantee the latest release on every call.
 
+## Portable Agent Plugin
+
+The root [plugin.json](plugin.json) follows the
+[Agent Plugins 1.0 specification](https://agent-plugins.org/specification).
+Compatible clients discover the entry skill in `skills/ambiguous-workspace/`.
+Repository guidance is in [AGENTS.md](AGENTS.md).
+
 ## Claude Code
 
 ```bash
@@ -42,7 +49,7 @@ Point at another stack with `AMBI_API_URL=https://app.devambi.cc`.
 
 Those hosts cannot run a local process, so they connect over MCP instead — add
 `https://app.ambiguous.ai/mcp` as a custom connector and sign in. Sign-in is OAuth
-and needs no key: the endpoint answers an unauthenticated call with `401` and a
+and needs no key: the endpoint answers an unauthenticated tool call with `401` and a
 `WWW-Authenticate` pointing at `/.well-known/oauth-protected-resource`, which is
 where the flow starts. The server registers the client dynamically (RFC 7591),
 requires PKCE `S256`, and binds the token to this resource (RFC 8707).
