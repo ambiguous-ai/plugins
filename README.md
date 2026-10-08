@@ -46,8 +46,7 @@ and the configured workspace origin. MCP use requires a connected server.
 Cursor, Claude Code and Codex can use either connection. If both are available,
 compare their user, workspace IDs and origins. Ask which to use when they differ;
 when they match, use whichever fits the operation. A working connection does not
-require setting up the other one. Missing credentials do not authorize creating
-a new workspace.
+require setting up the other one.
 
 ## Claude Code
 
