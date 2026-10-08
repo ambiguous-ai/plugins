@@ -1,6 +1,6 @@
 {
   "name": "ambiguous",
-  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — through the ambiguous CLI. Requires Node.js and npx; authenticate in your project directory.",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using available MCP tools or the ambiguous CLI. Verifies identity before workspace work.",
   "version": "0.5.1",
   "author": {
     "name": "Ambiguous AI",

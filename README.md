@@ -3,7 +3,8 @@
 Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 productivity
 apps for humans and AI teammates.
 
-Each plugin teaches its host to work in your workspace through the `ambiguous` CLI.
+The entry skill uses available Ambiguous MCP tools or the `ambiguous` CLI,
+verifying the intended identity before workspace work.
 The CLI runs via `npx`, which installs or uses a cached package. Confirm its version
 when troubleshooting; `npx` does not guarantee the latest release on every call.
 
@@ -29,21 +30,25 @@ same name takes precedence over the local copy.
 
 In the project directory where Cursor will run commands, use the workspace's
 **Settings → Connect** instructions to authenticate, then ask Cursor to report
-its Ambiguous identity and list your documents. Check that it uses the CLI,
-confirms the intended workspace, and reads the served `/skill` guide. This
-plugin needs Node.js, `npx`, shell execution and access to the npm registry and
-the configured workspace origin.
+its Ambiguous identity and list your documents. With CLI, check that it confirms
+the intended workspace and reads the served `/skill` guide. With MCP, check the
+connector identity and use the connected tools. Also test both connections with
+different identities: the agent must ask which to use before workspace work.
+CLI use requires Node.js, `npx`, shell execution and access to the npm registry
+and the configured workspace origin. MCP use requires a connected server.
 
 ## Connection choice
 
-| Session | Workspace operations | Credential |
+| Available connection | Workspace operations | Credential |
 | --- | --- | --- |
-| Cursor, Claude Code or Codex with a shell | `ambiguous` CLI | Project-local CLI login; `AMBI_API_TOKEN` for environment overrides |
-| Hosted connector session without a shell | MCP connector | OAuth held by that host |
+| MCP | Connected tools and MCP Apps where the host supports them | Host-managed connector credential |
+| CLI | `ambiguous` commands and shell pipelines | Project-local CLI login; `AMBI_API_TOKEN` for environment overrides |
 
-Choose one connection for a session. Missing MCP tools in a shell plugin is
-expected; check the CLI identity instead. Missing CLI credentials mean the
-existing workspace needs connecting, not that a new workspace should be created.
+Cursor, Claude Code and Codex can use either connection. If both are available,
+compare their user, workspace IDs and origins. Ask which to use when they differ;
+when they match, use whichever fits the operation. A working connection does not
+require setting up the other one. Missing credentials do not authorize creating
+a new workspace.
 
 ## Claude Code
 
@@ -76,24 +81,25 @@ from an image or a CI job whose secrets come from the runner.
 
 Point at another stack with `AMBI_API_URL=https://app.devambi.cc`.
 
-## Hosted MCP connectors
+## MCP connectors
 
-For a hosted session without shell access, connect over MCP instead — add
+To use MCP in a compatible host, add
 `https://app.ambiguous.ai/mcp` as a custom connector and sign in. Sign-in is OAuth
 and needs no key: the endpoint answers an unauthenticated tool call with `401` and a
 `WWW-Authenticate` pointing at `/.well-known/oauth-protected-resource`, which is
 where the flow starts. The server registers the client dynamically (RFC 7591),
 requires PKCE `S256`, and binds the token to this resource (RFC 8707).
 
-No plugin here ships an MCP server. MCP is for hosts with no shell; anything with a
-shell uses the CLI, where the surface costs nothing until it is called, commands
-compose in a pipeline, and a process can hold a socket open.
+No plugin here bundles an MCP server configuration. The entry skill can use an
+Ambiguous connector already configured in the host, including alongside the CLI.
+MCP Apps provide interactive views in supporting hosts; CLI commands compose in
+a pipeline and a process can hold a socket open.
 
 ## What ships
 
-- **`ambiguous-workspace`** — checks the intended identity, then fetches the
-  canonical `/skill` guide from the configured workspace origin. That guide owns
-  setup, workspace operations and runtime-specific notification handling.
+- **`ambiguous-workspace`** — verifies available connections and resolves
+  identity differences before work. Uses MCP tool guidance for MCP operations
+  and the canonical `/skill` guide for CLI operations.
 
 Both plugins carry the same entry skill. `skills/ambiguous-workspace/SKILL.md` is
 its source and `./scripts/sync-skills.sh` writes the per-plugin copies. Operating

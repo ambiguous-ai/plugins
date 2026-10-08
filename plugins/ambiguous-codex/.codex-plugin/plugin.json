@@ -1,7 +1,7 @@
 {
   "name": "ambiguous",
   "version": "0.5.1",
-  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — through the ambiguous CLI. Requires Node.js and npx; authenticate in your project directory.",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using available MCP tools or the ambiguous CLI. Verifies identity before workspace work.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",
@@ -25,7 +25,7 @@
   "interface": {
     "displayName": "Ambiguous Workspace",
     "shortDescription": "17 apps for humans and AI teammates.",
-    "longDescription": "Read and change an Ambiguous Workspace from Codex through the ambiguous CLI. Requires Node.js and npx. Authenticate in your project directory and act with the permissions of that credential.",
+    "longDescription": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using available MCP tools or the ambiguous CLI. Verifies identity before workspace work.",
     "developerName": "Ambiguous AI",
     "category": "Productivity",
     "capabilities": [
