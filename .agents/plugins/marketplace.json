@@ -10,7 +10,7 @@
         "source": "local",
         "path": "./plugins/ambiguous-codex"
       },
-      "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using available MCP tools or the ambiguous CLI. Verifies identity before workspace work.",
+      "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
       "policy": {
         "installation": "AVAILABLE"
       },

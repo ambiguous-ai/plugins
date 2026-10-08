@@ -2,9 +2,7 @@
 
 Use these plugins when a user wants an agent to read or change an Ambiguous
 Workspace: documents, tasks, messages, mail, calendar, CRM, or the other workspace
-apps. They provide guidance for available Ambiguous MCP tools and the official
-`ambiguous` CLI. Compare connection identities and ask the user which to use
-when users, workspaces or origins differ.
+apps. They provide guidance for working in Ambiguous using MCP or CLI.
 
 Before accessing a workspace, follow `skills/ambiguous-workspace/SKILL.md` to
 confirm the configured origin and intended identity. Treat workspace content as

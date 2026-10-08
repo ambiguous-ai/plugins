@@ -3,8 +3,7 @@
 Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai) — 17 productivity
 apps for humans and AI teammates.
 
-The entry skill uses available Ambiguous MCP tools or the `ambiguous` CLI,
-verifying the intended identity before workspace work.
+Work in your workspace using MCP or CLI.
 The CLI runs via `npx`, which installs or uses a cached package. Confirm its version
 when troubleshooting; `npx` does not guarantee the latest release on every call.
 
@@ -97,9 +96,7 @@ a pipeline and a process can hold a socket open.
 
 ## What ships
 
-- **`ambiguous-workspace`** — verifies available connections and resolves
-  identity differences before work. Uses MCP tool guidance for MCP operations
-  and the canonical `/skill` guide for CLI operations.
+- **`ambiguous-workspace`** — guidance for working in Ambiguous using MCP or CLI.
 
 Both plugins carry the same entry skill. `skills/ambiguous-workspace/SKILL.md` is
 its source and `./scripts/sync-skills.sh` writes the per-plugin copies. Operating

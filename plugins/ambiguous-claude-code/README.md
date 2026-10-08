@@ -4,9 +4,7 @@ Connects Claude Code to [Ambiguous Workspace](https://www.ambiguous.ai) — docs
 sheets, slides, wiki pages, tasks, CRM records, calendar events, mail, chat and
 Drive files.
 
-Claude uses available Ambiguous MCP tools or the `ambiguous` CLI. Both act with
-the permissions of their credential. If both are connected as different users
-or workspaces, the skill asks which to use before workspace work.
+Work in your workspace using MCP or CLI.
 
 ## Install
 
@@ -37,8 +35,7 @@ npx ambiguous whoami
 
 ## What the plugin adds
 
-The `ambiguous-workspace` skill verifies available connection identities and
-resolves differences before work. MCP uses its connected tool guidance; CLI
-uses the canonical `/skill` guide for operations and notification setup.
+The `ambiguous-workspace` skill provides guidance for working in Ambiguous using
+MCP or CLI.
 
 MIT.
