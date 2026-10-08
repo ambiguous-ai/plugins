@@ -14,6 +14,37 @@ The root [plugin.json](plugin.json) follows the
 Compatible clients discover the entry skill in `skills/ambiguous-workspace/`.
 Repository guidance is in [AGENTS.md](AGENTS.md).
 
+## Cursor
+
+Submit this repository's root `plugin.json` as a portable Agent Plugin. Cursor
+supports that format for skills; a `.cursor-plugin` manifest and an MCP server
+are not required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
+
+For a local discovery check, copy `plugin.json`, `skills/`, `README.md` and
+`LICENSE` into `~/.cursor/plugins/local/ambiguous/`. Use a real directory:
+Cursor skips symlinks to repositories outside its local plugins folder.
+Reload Cursor and open **Customize** to confirm `ambiguous-workspace` appears.
+Local plugin imports must be enabled; an installed marketplace plugin with the
+same name takes precedence over the local copy.
+
+In the project directory where Cursor will run commands, use the workspace's
+**Settings → Connect** instructions to authenticate, then ask Cursor to report
+its Ambiguous identity and list your documents. Check that it uses the CLI,
+confirms the intended workspace, and reads the served `/skill` guide. This
+plugin needs Node.js, `npx`, shell execution and access to the npm registry and
+the configured workspace origin.
+
+## Connection choice
+
+| Session | Workspace operations | Credential |
+| --- | --- | --- |
+| Cursor, Claude Code or Codex with a shell | `ambiguous` CLI | Project-local CLI login; `AMBI_API_TOKEN` for environment overrides |
+| Hosted connector session without a shell | MCP connector | OAuth held by that host |
+
+Choose one connection for a session. Missing MCP tools in a shell plugin is
+expected; check the CLI identity instead. Missing CLI credentials mean the
+existing workspace needs connecting, not that a new workspace should be created.
+
 ## Claude Code
 
 ```bash
@@ -45,9 +76,9 @@ from an image or a CI job whose secrets come from the runner.
 
 Point at another stack with `AMBI_API_URL=https://app.devambi.cc`.
 
-## Claude, ChatGPT and Cowork
+## Hosted MCP connectors
 
-Those hosts cannot run a local process, so they connect over MCP instead — add
+For a hosted session without shell access, connect over MCP instead — add
 `https://app.ambiguous.ai/mcp` as a custom connector and sign in. Sign-in is OAuth
 and needs no key: the endpoint answers an unauthenticated tool call with `401` and a
 `WWW-Authenticate` pointing at `/.well-known/oauth-protected-resource`, which is

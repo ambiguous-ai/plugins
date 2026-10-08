@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ambiguous",
-  "version": "0.5.0",
-  "description": "Work in an Ambiguous Workspace \u2014 docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki \u2014 through the `ambiguous` CLI. Runs via npx, so there is nothing to install and nothing to restart.",
+  "version": "0.5.1",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — through the ambiguous CLI. Requires Node.js and npx; authenticate in your project directory.",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io",

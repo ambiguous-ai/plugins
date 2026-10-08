@@ -5,15 +5,23 @@ description: Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mai
 
 # Work in Ambiguous
 
-Use the `ambiguous` CLI for workspace operations. Before your first action, run:
+This is a shell plugin: use the `ambiguous` CLI for workspace operations in
+Cursor, Claude Code and Codex. It does not provide MCP tools. Do not add an MCP
+server, run an MCP login, or switch to a separate connector to repair this CLI
+connection; that can silently change the identity or workspace. Hosted connector
+sessions use MCP with their own OAuth credential and do not use this shell skill.
+
+Before your first action, run:
 
 ```bash
 npx ambiguous whoami --json
 ```
 
-Confirm the identity, workspace and credential source match the user's intent.
-If they do not, stop and explain the mismatch. Missing or rejected credentials do
-not authorize creating a new workspace: request the existing workspace's Connect
+Require `authenticated: true` and no unverified-identity warning. Confirm the
+identity, workspace and credential source match the user's intent. Report the
+identity and workspace without repeating token previews or credentials. If the
+identity is unverified or differs from the intended one, stop and explain why.
+Missing or rejected credentials do not authorize creating a new workspace: request the existing workspace's Connect
 instructions. Create a workspace only when the user explicitly asked for one.
 
 Fetch and read the current workspace guide from `/skill` at the `apiUrl` returned
