@@ -83,11 +83,13 @@ Point at another stack with `AMBI_API_URL=https://app.devambi.cc`.
 ## MCP connectors
 
 To use MCP in a compatible host, add
-`https://app.ambiguous.ai/mcp` as a custom connector and sign in. Sign-in is OAuth
-and needs no key: the endpoint answers an unauthenticated tool call with `401` and a
+`https://app.ambiguous.ai/mcp` as a custom connector. Protected operations use
+OAuth sign-in and need no pasted key: an unauthenticated protected call answers `401` and a
 `WWW-Authenticate` pointing at `/.well-known/oauth-protected-resource`, which is
 where the flow starts. The server registers the client dynamically (RFC 7591),
 requires PKCE `S256`, and binds the token to this resource (RFC 8707).
+Creating anonymous docs, sheets, presentations and canvases needs no sign-in;
+keep the returned `claim_key` to claim the document after signing in.
 
 No plugin here bundles an MCP server configuration. The entry skill can use an
 Ambiguous connector already configured in the host, including alongside the CLI.
