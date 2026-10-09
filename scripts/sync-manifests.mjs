@@ -30,6 +30,7 @@ for (const path of [
 
 for (const path of ['.claude-plugin/marketplace.json', '.agents/plugins/marketplace.json']) {
   const marketplace = read(path);
+  if ('description' in marketplace) marketplace.description = source.description;
   const entry = marketplace.plugins.find(plugin => plugin.name === source.name);
   if (!entry) throw new Error(`Missing ${source.name} entry in ${path}`);
   entry.description = source.description;

@@ -5,7 +5,7 @@
     "name": "Ambiguous AI",
     "email": "support@ambiguous.io"
   },
-  "description": "Ambiguous Workspace — docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, for people and AI teammates.",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
   "plugins": [
     {
       "name": "ambiguous",
