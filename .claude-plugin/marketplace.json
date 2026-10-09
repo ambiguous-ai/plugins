@@ -3,7 +3,7 @@
   "name": "ambiguous-ai",
   "owner": {
     "name": "Ambiguous AI",
-    "email": "support@ambiguous.io"
+    "email": "support@ambiguous.ai"
   },
   "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
   "plugins": [
