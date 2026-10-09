@@ -1,6 +1,6 @@
 ---
 name: ambiguous-workspace
-description: Work in an Ambiguous Workspace — docs, chat, tasks, calendar, mail, drive, CRM, wiki, sheets, slides. Use when the user references an Ambiguous link or @mention, or asks to read, create, or change anything in their workspace.
+description: Work in an Ambiguous Workspace. Use when the user references an Ambiguous link or @mention, or asks to read, create, or change anything in their workspace.
 ---
 
 # Work in Ambiguous
@@ -14,8 +14,8 @@ https://ambiguous.ai/skill for CLI operations.
 
 MCP can create anonymous docs, sheets, presentations and canvases without sign-in.
 Keep the returned `claim_key` and give it to the user to claim after signing in.
-Do not require login for supported anonymous operations or silently fall back to
-anonymous access after a rejected credential.
+Don't require sign-in for supported anonymous operations. If a credential is
+rejected, say so; don't silently fall back to anonymous access.
 
 Report reproducible product bugs with MCP's `submit_feedback` or
 `npx ambiguous@latest bug`. Include steps, expected and actual behavior; omit

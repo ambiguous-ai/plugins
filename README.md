@@ -1,22 +1,16 @@
 # Ambiguous plugins
 
-Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai), using MCP or CLI.
-
-Bring your documents, tasks, calendar, mail and other workspace apps into your AI client.
+Official plugins for [Ambiguous](https://www.ambiguous.ai), the workspace built
+for human-AI collaboration. They let your AI client work in your workspace's
+apps through MCP or CLI.
 
 For operating instructions, see the [workspace skill](skills/ambiguous-workspace/SKILL.md).
 For repository maintenance, see [AGENTS.md](AGENTS.md).
 
 ## Cursor
 
-Cursor supports the root portable manifest; no `.cursor-plugin` manifest is
-required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
-
-For a local test, copy `plugin.json`, `skills/`, `README.md` and `LICENSE` into
-`~/.cursor/plugins/local/ambiguous/`. Reload Cursor and open **Customize**.
-Use a real directory: Cursor skips symlinks to repositories outside that folder.
-Local imports must be allowed, and an installed marketplace package with the
-same name takes precedence over the local copy.
+To try this plugin in Cursor before marketplace publication, follow the
+[local installation steps](AGENTS.md#cursor-local-installation).
 
 ## Claude Code
 

@@ -25,8 +25,8 @@ claude plugin validate ./plugins/ambiguous-claude-code
 git diff --check
 ```
 
-For Cursor, test local discovery using the README instructions. For Codex, verify
-skill loading through a local marketplace install; the CLI has no plugin validator.
+For Cursor, use the local installation steps below to test discovery. For Codex,
+verify skill loading through a local marketplace install; the CLI has no plugin validator.
 For behavior changes, exercise the affected path in a fresh agent chat and report
 what was actually verified.
 
@@ -35,3 +35,14 @@ https://cursor.com/marketplace/publish. The root manifest uses the portable
 Agent Plugins format; client packages remain in `plugins/`.
 
 Never commit credentials, `.ambi/config.json` or environment files.
+
+## Cursor local installation
+
+Cursor supports the root portable manifest; no `.cursor-plugin` manifest is
+required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
+
+Copy `plugin.json`, `skills/`, `README.md` and `LICENSE` into
+`~/.cursor/plugins/local/ambiguous/`. Reload Cursor and open **Customize**.
+Use a real directory: Cursor skips symlinks to repositories outside that folder.
+Local imports must be allowed, and an installed marketplace package with the
+same name takes precedence over the local copy.
