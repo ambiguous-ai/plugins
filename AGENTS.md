@@ -30,4 +30,8 @@ skill loading through a local marketplace install; the CLI has no plugin validat
 For behavior changes, exercise the affected path in a fresh agent chat and report
 what was actually verified.
 
+For Cursor marketplace review, submit the public repository at
+https://cursor.com/marketplace/publish. The root manifest uses the portable
+Agent Plugins format; client packages remain in `plugins/`.
+
 Never commit credentials, `.ambi/config.json` or environment files.

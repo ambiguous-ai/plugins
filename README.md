@@ -2,9 +2,7 @@
 
 Official plugins for [Ambiguous Workspace](https://www.ambiguous.ai), using MCP or CLI.
 
-The root [plugin.json](plugin.json) packages a portable
-[Agent Plugin](https://agent-plugins.org/specification). Claude Code and Codex
-packages live in `plugins/`.
+Bring your documents, tasks, calendar, mail and other workspace apps into your AI client.
 
 For operating instructions, see the [workspace skill](skills/ambiguous-workspace/SKILL.md).
 For repository maintenance, see [AGENTS.md](AGENTS.md).
@@ -19,9 +17,6 @@ For a local test, copy `plugin.json`, `skills/`, `README.md` and `LICENSE` into
 Use a real directory: Cursor skips symlinks to repositories outside that folder.
 Local imports must be allowed, and an installed marketplace package with the
 same name takes precedence over the local copy.
-
-For marketplace review, submit this public repository at
-[Publish a plugin](https://cursor.com/marketplace/publish).
 
 ## Claude Code
 
@@ -50,5 +45,8 @@ Configure the connection you want to use:
   the workspace API. Get connection instructions from your workspace's
   [Settings → Connect](https://app.ambiguous.ai/settings/connect).
   [Authentication guide](https://www.ambiguous.ai/auth.md).
+
+After connecting, try: “List the five most recent documents I created, with
+titles and links.”
 
 MIT licensed. See [LICENSE](LICENSE).
