@@ -10,7 +10,7 @@
         "source": "local",
         "path": "./plugins/ambiguous-codex"
       },
-      "description": "Work in an Ambiguous Workspace \u2014 docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki, through the ambiguous CLI.",
+      "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
       "policy": {
         "installation": "AVAILABLE"
       },

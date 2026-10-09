@@ -3,15 +3,15 @@
   "name": "ambiguous-ai",
   "owner": {
     "name": "Ambiguous AI",
-    "email": "support@ambiguous.io"
+    "email": "support@ambiguous.ai"
   },
-  "description": "Ambiguous Workspace \u2014 docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, for people and AI teammates.",
+  "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
   "plugins": [
     {
       "name": "ambiguous",
       "source": "./plugins/ambiguous-claude-code",
-      "description": "Ambiguous is a workspace where people and AI teammates work side by side \u2014 docs, sheets, slides, wiki, tasks, CRM, calendar, mail, chat and Drive in one place, over one set of records and one permission model. This plugin teaches Claude to work in that workspace the way a colleague would, through the `ambiguous` CLI: resolve a link someone pasted, read the planning doc before changing it, file tasks from a meeting note, update a CRM record after a call. Nothing to install and nothing binds at startup \u2014 it runs via npx and works in the session you add it to. Claude acts with exactly the permissions the credential carries.",
-      "version": "0.5.0",
+      "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
+      "version": "0.5.1",
       "category": "productivity",
       "tags": [
         "productivity",

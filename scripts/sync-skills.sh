@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 # One skill, two plugins.
 #
-# `skills/ambiguous-workspace/SKILL.md` is the source. Each plugin needs its own
-# copy because both hosts look for `skills/` inside the plugin directory, so the
-# copies are generated here rather than hand-maintained — three hand-written
-# copies drifted once, and the one that drifted dropped the rule about treating
-# workspace content as data rather than instruction.
-#
-#   ./scripts/sync-skills.sh            write the copies
-#   ./scripts/sync-skills.sh --check    fail if a copy is stale (CI)
+# Source and maintenance commands: AGENTS.md.
+# Each client discovers skills inside its own package directory.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
