@@ -7,10 +7,15 @@ apps through MCP or CLI.
 For operating instructions, see the [workspace skill](skills/ambiguous-workspace/SKILL.md).
 For repository maintenance, see [AGENTS.md](AGENTS.md).
 
-## Cursor
+## Cursor and Grok Bot
 
-To try this plugin in Cursor before marketplace publication, follow the
-[local installation steps](AGENTS.md#cursor-local-installation).
+In Cursor, open **Customize → Browse Marketplace → Add Marketplace → Import from
+GitHub** and enter `https://github.com/ambiguous-ai/plugins`. Import it for your
+user account, then add the Ambiguous plugin. In Grok Bot, find the imported plugin
+under **Connect apps**.
+
+Contributors testing unpublished changes can use the
+[local developer preview](AGENTS.md#local-developer-preview-in-cursor).
 
 ## Claude Code
 
@@ -31,16 +36,9 @@ codex plugin add ambiguous@ambiguous-ai
 
 ## Connect
 
-These packages contain a skill, without a bundled MCP server configuration.
-Configure the connection you want to use:
-
-- **MCP:** add `https://app.ambiguous.ai/mcp` in your host's connector settings.
-- **CLI:** requires Node.js, `npx`, shell execution and network access to npm and
-  the workspace API. Get connection instructions from your workspace's
+- **MCP:** sign in through the bundled Ambiguous connector.
+- **CLI:** get connection instructions from your workspace's
   [Settings → Connect](https://app.ambiguous.ai/settings/connect).
   [Authentication guide](https://www.ambiguous.ai/auth.md).
-
-After connecting, try: “List the five most recent documents I created, with
-titles and links.”
 
 MIT licensed. See [LICENSE](LICENSE).

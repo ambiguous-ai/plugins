@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// Shared metadata is authored in root plugin.json; host-specific fields stay local.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
@@ -12,37 +11,71 @@ const check = process.argv.includes('--check');
 const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const source = read('plugin.json');
 const shared = ['name', 'version', 'description', 'author', 'homepage', 'repository', 'license', 'keywords'];
-const outputs = new Map();
-
-for (const path of [
-  'plugins/ambiguous-claude-code/.claude-plugin/plugin.json',
-  'plugins/ambiguous-codex/.codex-plugin/plugin.json',
-]) {
-  const manifest = read(path);
-  for (const field of shared) manifest[field] = source[field];
-  if (manifest.interface) {
-    manifest.interface.longDescription = source.description;
-    manifest.interface.developerName = source.author.name;
-    manifest.interface.websiteURL = source.homepage;
-  }
-  outputs.set(path, manifest);
-}
-
-for (const path of ['.claude-plugin/marketplace.json', '.agents/plugins/marketplace.json']) {
-  const marketplace = read(path);
-  if ('description' in marketplace) marketplace.description = source.description;
-  if (marketplace.owner) marketplace.owner.email = source.author.email;
-  const entry = marketplace.plugins.find(plugin => plugin.name === source.name);
-  if (!entry) throw new Error(`Missing ${source.name} entry in ${path}`);
-  entry.description = source.description;
-  if ('version' in entry) entry.version = source.version;
-  outputs.set(path, marketplace);
-}
+const plugin = Object.fromEntries(shared.map(field => [field, source[field]]));
+const clientMcp = {
+  mcpServers: Object.fromEntries(Object.entries(read('mcp.json').mcpServers).map(([name, server]) => [
+    name,
+    { ...server, type: server.type === 'streamable-http' ? 'http' : server.type },
+  ])),
+};
+const outputs = new Map([
+  ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', { ...plugin, mcpServers: './.mcp.json' }],
+  ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {
+    ...plugin,
+    skills: './skills/',
+    mcpServers: './.mcp.json',
+    interface: {
+      displayName: 'Ambiguous Workspace',
+      shortDescription: '17 apps for humans and AI teammates.',
+      longDescription: source.description,
+      developerName: source.author.name,
+      category: 'Productivity',
+      capabilities: ['Interactive', 'Write'],
+      websiteURL: source.homepage,
+      privacyPolicyURL: `${source.homepage}/legal/privacy`,
+      termsOfServiceURL: `${source.homepage}/legal/terms`,
+      brandColor: '#405ef2',
+      defaultPrompt: [
+        "What's on my Ambiguous calendar today?",
+        'Summarise my unread Ambiguous messages.',
+        'Create a task in Ambiguous and assign it.',
+      ],
+      logo: './assets/logo.svg',
+    },
+  }],
+  ['.claude-plugin/marketplace.json', {
+    $schema: 'https://json.schemastore.org/claude-code-marketplace.json',
+    name: 'ambiguous-ai',
+    owner: { name: source.author.name, email: source.author.email },
+    description: source.description,
+    plugins: [{
+      name: source.name,
+      source: './plugins/ambiguous-claude-code',
+      description: source.description,
+      version: source.version,
+      category: 'productivity',
+      tags: ['productivity', 'crm', 'tasks', 'docs', 'wiki', 'calendar', 'mail', 'chat', 'workspace', 'cli'],
+    }],
+  }],
+  ['.agents/plugins/marketplace.json', {
+    name: 'ambiguous-ai',
+    interface: { displayName: 'Ambiguous Workspace' },
+    plugins: [{
+      name: source.name,
+      source: { source: 'local', path: './plugins/ambiguous-codex' },
+      description: source.description,
+      policy: { installation: 'AVAILABLE' },
+      category: 'Productivity',
+    }],
+  }],
+  ['plugins/ambiguous-claude-code/.mcp.json', clientMcp],
+  ['plugins/ambiguous-codex/.mcp.json', clientMcp],
+]);
 
 let stale = false;
 for (const [path, manifest] of outputs) {
   const output = JSON.stringify(manifest, null, 2) + '\n';
-  if (readFileSync(resolve(root, path), 'utf8') === output) continue;
+  if (check && readFileSync(resolve(root, path), 'utf8') === output) continue;
   if (check) {
     console.error(`sync-manifests: STALE — ${path}`);
     stale = true;
