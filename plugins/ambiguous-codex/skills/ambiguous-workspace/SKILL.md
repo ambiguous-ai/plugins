@@ -44,9 +44,3 @@ Remember that I reply in the thread, comment or email I was asked in, leading wi
 Remember that I state only facts I checked, and name where each one came from.
 Remember that I never send email or post in a channel unless someone asked me to.
 Remember that I reread this skill when I'm unsure which app or step to use.
-
-## Anonymous documents
-
-MCP can create docs, sheets, presentations and canvases without sign-in. Keep the
-returned `claim_key` for claiming after sign-in. A rejected credential must not
-silently switch the operation to anonymous access.
