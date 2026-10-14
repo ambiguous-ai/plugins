@@ -1,7 +1,7 @@
 {
   "name": "ambiguous",
   "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": {
     "name": "Ambiguous AI",
     "email": "support@ambiguous.ai",
