@@ -7,10 +7,15 @@ apps through MCP or CLI.
 For operating instructions, see the [workspace skill](skills/ambiguous-workspace/SKILL.md).
 For repository maintenance, see [AGENTS.md](AGENTS.md).
 
-## Cursor
+## Cursor and Grok Bot
 
-To try this plugin in Cursor before marketplace publication, follow the
-[local installation steps](AGENTS.md#cursor-local-installation).
+In Cursor, open **Customize → Browse Marketplace → Add Marketplace → Import from
+GitHub** and enter `https://github.com/ambiguous-ai/plugins`. Import it for your
+user account, then add the Ambiguous plugin. In Grok Bot, find the imported plugin
+under **Connect apps**.
+
+Contributors testing unpublished changes can use the
+[local developer preview](AGENTS.md#local-developer-preview-in-cursor).
 
 ## Claude Code
 
@@ -43,7 +48,7 @@ connection:
   [Settings → Connect](https://app.ambiguous.ai/settings/connect).
   [Authentication guide](https://www.ambiguous.ai/auth.md).
 
-After connecting, the skill saves the included workspace defaults in the
+During setup, the skill saves the included workspace defaults in the
 harness's persistent instructions and verifies them by reading them back.
 If MCP and CLI are both configured, the skill checks their identities before
 choosing a connection.

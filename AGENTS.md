@@ -21,7 +21,9 @@ GitHub collapses these outputs; review `plugin.json` for shared metadata, `mcp.j
 for the connection, and
 `scripts/sync-manifests.mjs` for changes to client-specific fields or package paths.
 
-Before submitting:
+## Contributor checks before opening a PR
+
+Run these checks when changing this repository:
 
 ```bash
 ./scripts/sync-skills.sh --check
@@ -31,7 +33,7 @@ claude plugin validate ./plugins/ambiguous-claude-code
 git diff --check
 ```
 
-For Cursor, use the local installation steps below to test discovery. For Codex,
+For Cursor, use the local developer-preview steps below to test discovery. For Codex,
 verify skill loading through a local marketplace install; the CLI has no plugin validator.
 For behavior changes, exercise the affected path in a fresh agent chat and report
 what was actually verified.
@@ -42,7 +44,10 @@ Agent Plugins format; client packages remain in `plugins/`.
 
 Never commit credentials, `.ambi/config.json` or environment files.
 
-## Cursor local installation
+## Local developer preview in Cursor
+
+Use this to test unpublished repository changes on your own machine. User
+installation through a marketplace or GitHub import does not require these copies.
 
 Cursor supports the root portable manifest; no `.cursor-plugin` manifest is
 required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
