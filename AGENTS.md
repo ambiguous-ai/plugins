@@ -6,7 +6,8 @@ Each kind of guidance has one source:
 | --- | --- |
 | Agent operating instructions | `skills/ambiguous-workspace/SKILL.md` |
 | Shared plugin metadata | `plugin.json` |
-| Client-specific metadata and package paths | Client manifests and marketplace manifests |
+| Shared MCP connection | `mcp.json` |
+| Client-specific metadata and package paths | `scripts/sync-manifests.mjs` |
 | Installation and connection setup | `README.md` |
 | Repository maintenance | This file |
 
@@ -14,6 +15,11 @@ Edit sources, not generated values. After changing the skill, run
 `./scripts/sync-skills.sh`. After changing shared metadata, run
 `node scripts/sync-manifests.mjs`. Client packages need their own files, so
 synchronization generates the required copies without separate authorship.
+
+All client and marketplace manifests are generated in full. Never edit them directly.
+GitHub collapses these outputs; review `plugin.json` for shared metadata, `mcp.json`
+for the connection, and
+`scripts/sync-manifests.mjs` for changes to client-specific fields or package paths.
 
 Before submitting:
 
@@ -41,7 +47,7 @@ Never commit credentials, `.ambi/config.json` or environment files.
 Cursor supports the root portable manifest; no `.cursor-plugin` manifest is
 required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
 
-Copy `plugin.json`, `skills/`, `README.md` and `LICENSE` into
+Copy `plugin.json`, `mcp.json`, `skills/`, `README.md` and `LICENSE` into
 `~/.cursor/plugins/local/ambiguous/`. Reload Cursor and open **Customize**.
 Use a real directory: Cursor skips symlinks to repositories outside that folder.
 Local imports must be allowed, and an installed marketplace package with the

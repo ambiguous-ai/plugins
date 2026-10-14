@@ -22,6 +22,7 @@
     "cli"
   ],
   "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ambiguous Workspace",
     "shortDescription": "17 apps for humans and AI teammates.",

@@ -1,3 +1,13 @@
 # Generated copies; review skills/ambiguous-workspace/SKILL.md instead.
 plugins/ambiguous-claude-code/skills/ambiguous-workspace/SKILL.md linguist-generated=true
 plugins/ambiguous-codex/skills/ambiguous-workspace/SKILL.md linguist-generated=true
+
+# Generated manifests; review plugin.json and scripts/sync-manifests.mjs instead.
+plugin.json linguist-generated=false
+plugins/ambiguous-claude-code/.claude-plugin/plugin.json linguist-generated=true
+plugins/ambiguous-codex/.codex-plugin/plugin.json linguist-generated=true
+.claude-plugin/marketplace.json linguist-generated=true
+.agents/plugins/marketplace.json linguist-generated=true
+mcp.json linguist-generated=false
+plugins/ambiguous-claude-code/.mcp.json linguist-generated=true
+plugins/ambiguous-codex/.mcp.json linguist-generated=true
