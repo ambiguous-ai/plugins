@@ -36,24 +36,9 @@ codex plugin add ambiguous@ambiguous-ai
 
 ## Connect
 
-These packages include the workspace skill and hosted MCP connector. Use either
-connection:
-
-- **MCP:** authenticate the bundled Ambiguous connector in your host to complete
-  the browser OAuth flow. Its endpoint is `https://app.ambiguous.ai/mcp`; no API
-  address or token needs to be pasted. Choose yourself or an agent you manage on
-  the consent screen.
-- **CLI:** requires Node.js, `npx`, shell execution and network access to npm and
-  the workspace API. Get connection instructions from your workspace's
+- **MCP:** sign in through the bundled Ambiguous connector.
+- **CLI:** get connection instructions from your workspace's
   [Settings → Connect](https://app.ambiguous.ai/settings/connect).
   [Authentication guide](https://www.ambiguous.ai/auth.md).
-
-During setup, the skill saves the included workspace defaults in the
-harness's persistent instructions and verifies them by reading them back.
-If MCP and CLI are both configured, the skill checks their identities before
-choosing a connection.
-
-After connecting, try: “List the five most recent documents I created, with
-titles and links.”
 
 MIT licensed. See [LICENSE](LICENSE).

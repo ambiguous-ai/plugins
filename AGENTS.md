@@ -11,19 +11,11 @@ Each kind of guidance has one source:
 | Installation and connection setup | `README.md` |
 | Repository maintenance | This file |
 
-Edit sources, not generated values. After changing the skill, run
-`./scripts/sync-skills.sh`. After changing shared metadata, run
-`node scripts/sync-manifests.mjs`. Client packages need their own files, so
-synchronization generates the required copies without separate authorship.
-
-All client and marketplace manifests are generated in full. Never edit them directly.
-GitHub collapses these outputs; review `plugin.json` for shared metadata, `mcp.json`
-for the connection, and
-`scripts/sync-manifests.mjs` for changes to client-specific fields or package paths.
+Regenerate skill copies with `./scripts/sync-skills.sh` and manifests with
+`node scripts/sync-manifests.mjs`. GitHub collapses the generated outputs;
+review the sources listed above.
 
 ## Contributor checks before opening a PR
-
-Run these checks when changing this repository:
 
 ```bash
 ./scripts/sync-skills.sh --check
@@ -42,17 +34,9 @@ For Cursor marketplace review, submit the public repository at
 https://cursor.com/marketplace/publish. The root manifest uses the portable
 Agent Plugins format; client packages remain in `plugins/`.
 
-Never commit credentials, `.ambi/config.json` or environment files.
-
 ## Local developer preview in Cursor
 
-Use this to test unpublished repository changes on your own machine. User
-installation through a marketplace or GitHub import does not require these copies.
-
-Cursor supports the root portable manifest; no `.cursor-plugin` manifest is
-required. See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins).
-
-Copy `plugin.json`, `mcp.json`, `skills/`, `README.md` and `LICENSE` into
+To preview unpublished changes, copy `plugin.json`, `mcp.json` and `skills/` into
 `~/.cursor/plugins/local/ambiguous/`. Reload Cursor and open **Customize**.
 Use a real directory: Cursor skips symlinks to repositories outside that folder.
 Local imports must be allowed, and an installed marketplace package with the
