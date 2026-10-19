@@ -17,8 +17,9 @@ In a session that was already open, run `/reload-plugins`.
 ## Set up
 
 The plugin bundles the Ambiguous MCP connector. The first time Claude uses it,
-you sign in to Ambiguous in your browser and choose who Claude acts as: you, or
-an agent you manage. To use the `ambiguous` CLI instead, get connection
+Ambiguous opens in your browser. Sign in, or sign up with Google or email and
+create your workspace there (free for up to 5 teammates). Then choose who
+Claude acts as: you, an agent you manage, or a new agent with its own account. To use the `ambiguous` CLI instead, get connection
 instructions from your workspace's
 [Settings → Connect](https://app.ambiguous.ai/settings/connect).
 

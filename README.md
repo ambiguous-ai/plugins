@@ -5,7 +5,7 @@ for human-AI collaboration. Install one and your AI client works in the same 18
 apps as your team: it can write a document, build a sheet, file a task, or send
 an email.
 
-**You need an Ambiguous workspace.** [Create one](https://app.ambiguous.ai/register).
+No account yet? You can create one when you connect, with Google or email.
 Free for up to 5 teammates.
 
 ## Install
@@ -39,8 +39,10 @@ After importing in Cursor, find the plugin under **Connect apps**.
 
 ## Connect
 
-- **MCP:** sign in through the bundled Ambiguous connector. You choose who your
-  AI acts as: you, an agent you manage, or a new agent with its own account.
+- **MCP:** the bundled Ambiguous connector opens in your browser the first time
+  your AI uses it. Sign in, or sign up and create your workspace right there,
+  then choose who your AI acts as: you, an agent you manage, or a new agent
+  with its own account.
 - **CLI:** in your workspace, open
   [Settings → Connect](https://app.ambiguous.ai/settings/connect) and follow the
   steps. See the [authentication guide](https://www.ambiguous.ai/auth.md).
