@@ -23,6 +23,7 @@ const outputs = new Map([
   ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', {
     ...plugin,
     mcpServers: './.mcp.json',
+    icon: './.claude-plugin/icon.png',
     privacyPolicyUrl: privacyPolicyURL,
   }],
   ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {

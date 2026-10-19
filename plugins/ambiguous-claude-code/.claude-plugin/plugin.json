@@ -22,5 +22,6 @@
     "cli"
   ],
   "mcpServers": "./.mcp.json",
+  "icon": "./.claude-plugin/icon.png",
   "privacyPolicyUrl": "https://www.ambiguous.ai/legal/privacy"
 }
