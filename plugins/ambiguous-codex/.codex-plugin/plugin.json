@@ -1,6 +1,6 @@
 {
   "name": "ambiguous",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
   "author": {
     "name": "Ambiguous AI",
@@ -36,6 +36,7 @@
     "websiteURL": "https://www.ambiguous.ai",
     "privacyPolicyURL": "https://www.ambiguous.ai/legal/privacy",
     "termsOfServiceURL": "https://www.ambiguous.ai/legal/terms",
+    "supportURL": "https://www.ambiguous.ai/support",
     "brandColor": "#405ef2",
     "defaultPrompt": [
       "What's on my Ambiguous calendar today?",

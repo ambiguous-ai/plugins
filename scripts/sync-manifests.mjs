@@ -19,12 +19,16 @@ const clientMcp = {
   ])),
 };
 const privacyPolicyURL = `${source.homepage}/legal/privacy`;
+const termsOfServiceURL = `${source.homepage}/legal/terms`;
+const supportURL = `${source.homepage}/support`;
 const outputs = new Map([
   ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', {
     ...plugin,
     mcpServers: './.mcp.json',
     icon: './.claude-plugin/icon.png',
     privacyPolicyUrl: privacyPolicyURL,
+    termsOfServiceUrl: termsOfServiceURL,
+    supportUrl: supportURL,
   }],
   ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {
     ...plugin,
@@ -39,7 +43,8 @@ const outputs = new Map([
       capabilities: ['Interactive', 'Write'],
       websiteURL: source.homepage,
       privacyPolicyURL,
-      termsOfServiceURL: `${source.homepage}/legal/terms`,
+      termsOfServiceURL,
+      supportURL,
       brandColor: '#405ef2',
       defaultPrompt: [
         "What's on my Ambiguous calendar today?",

@@ -1,6 +1,6 @@
 {
   "name": "ambiguous",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
   "author": {
     "name": "Ambiguous AI",
@@ -23,5 +23,7 @@
   ],
   "mcpServers": "./.mcp.json",
   "icon": "./.claude-plugin/icon.png",
-  "privacyPolicyUrl": "https://www.ambiguous.ai/legal/privacy"
+  "privacyPolicyUrl": "https://www.ambiguous.ai/legal/privacy",
+  "termsOfServiceUrl": "https://www.ambiguous.ai/legal/terms",
+  "supportUrl": "https://www.ambiguous.ai/support"
 }
