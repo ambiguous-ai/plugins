@@ -18,21 +18,27 @@ const clientMcp = {
     { ...server, type: server.type === 'streamable-http' ? 'http' : server.type },
   ])),
 };
+const privacyPolicyURL = `${source.homepage}/legal/privacy`;
 const outputs = new Map([
-  ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', { ...plugin, mcpServers: './.mcp.json' }],
+  ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', {
+    ...plugin,
+    mcpServers: './.mcp.json',
+    icon: './.claude-plugin/icon.png',
+    privacyPolicyUrl: privacyPolicyURL,
+  }],
   ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {
     ...plugin,
     skills: './skills/',
     mcpServers: './.mcp.json',
     interface: {
       displayName: 'Ambiguous Workspace',
-      shortDescription: '17 apps for humans and AI teammates.',
+      shortDescription: '18 apps for humans and AI teammates.',
       longDescription: source.description,
       developerName: source.author.name,
       category: 'Productivity',
       capabilities: ['Interactive', 'Write'],
       websiteURL: source.homepage,
-      privacyPolicyURL: `${source.homepage}/legal/privacy`,
+      privacyPolicyURL,
       termsOfServiceURL: `${source.homepage}/legal/terms`,
       brandColor: '#405ef2',
       defaultPrompt: [
