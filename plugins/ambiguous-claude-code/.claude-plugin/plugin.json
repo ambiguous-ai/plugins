@@ -21,5 +21,6 @@
     "chat",
     "cli"
   ],
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.mcp.json",
+  "privacyPolicyUrl": "https://www.ambiguous.ai/legal/privacy"
 }
