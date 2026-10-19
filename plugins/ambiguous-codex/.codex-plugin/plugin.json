@@ -25,7 +25,7 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ambiguous Workspace",
-    "shortDescription": "17 apps for humans and AI teammates.",
+    "shortDescription": "18 apps for humans and AI teammates.",
     "longDescription": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
     "developerName": "Ambiguous AI",
     "category": "Productivity",

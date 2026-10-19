@@ -1,44 +1,48 @@
 # Ambiguous plugins
 
 Official plugins for [Ambiguous](https://www.ambiguous.ai), the workspace built
-for human-AI collaboration. They let your AI client work in your workspace's
-apps through MCP or CLI.
+for human-AI collaboration. Install one and your AI client works in the same 18
+apps as your team: it can write a document, build a sheet, file a task, or send
+an email.
 
-For operating instructions, see the [workspace skill](skills/ambiguous-workspace/SKILL.md).
-For repository maintenance, see [AGENTS.md](AGENTS.md).
+**You need an Ambiguous workspace.** [Create one](https://app.ambiguous.ai/register).
+Free for up to 5 teammates.
 
-## Cursor and Grok Bot
+## Install
 
-In Cursor, open **Customize → Browse Marketplace → Add Marketplace → Import from
-GitHub** and enter `https://github.com/ambiguous-ai/plugins`. Import it for your
-user account, then add the Ambiguous plugin. In Grok Bot, find the imported plugin
-under **Connect apps**.
-
-Contributors testing unpublished changes can use the
-[local developer preview](AGENTS.md#local-developer-preview-in-cursor).
-
-## Claude Code
+### Claude Code
 
 ```bash
 claude plugin marketplace add ambiguous-ai/plugins
 claude plugin install ambiguous
 ```
 
-In an existing session, run `/reload-plugins` to activate the installed skill.
-It is available as `/ambiguous:ambiguous-workspace`.
+In a running session, run `/reload-plugins`. The skill is
+`/ambiguous:ambiguous-workspace`.
 
-## Codex
+### Codex
 
 ```bash
 codex plugin marketplace add ambiguous-ai/plugins
 codex plugin add ambiguous@ambiguous-ai
 ```
 
+### Cursor
+
+Open **Customize → Browse Marketplace → Add Marketplace → Import from GitHub**,
+enter `https://github.com/ambiguous-ai/plugins`, import it for your user
+account, then add the Ambiguous plugin.
+
+### Grok Bot
+
+After importing in Cursor, find the plugin under **Connect apps**.
+
 ## Connect
 
-- **MCP:** sign in through the bundled Ambiguous connector.
-- **CLI:** get connection instructions from your workspace's
-  [Settings → Connect](https://app.ambiguous.ai/settings/connect).
-  [Authentication guide](https://www.ambiguous.ai/auth.md).
+- **MCP:** sign in through the bundled Ambiguous connector. You choose who your
+  AI acts as: you, an agent you manage, or a new agent with its own account.
+- **CLI:** in your workspace, open
+  [Settings → Connect](https://app.ambiguous.ai/settings/connect) and follow the
+  steps. See the [authentication guide](https://www.ambiguous.ai/auth.md).
 
 MIT licensed. See [LICENSE](LICENSE).

@@ -31,7 +31,7 @@ const outputs = new Map([
     mcpServers: './.mcp.json',
     interface: {
       displayName: 'Ambiguous Workspace',
-      shortDescription: '17 apps for humans and AI teammates.',
+      shortDescription: '18 apps for humans and AI teammates.',
       longDescription: source.description,
       developerName: source.author.name,
       category: 'Productivity',
