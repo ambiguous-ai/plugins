@@ -8,11 +8,8 @@ permissions.
 
 ## Install
 
-```
-/plugin install ambiguous --marketplace ambiguous-ai/plugins
-```
-
-In a session that was already open, run `/reload-plugins`.
+Follow the [Claude Code install steps](https://github.com/ambiguous-ai/plugins#claude-code)
+in the repository README.
 
 ## Set up
 
@@ -28,8 +25,5 @@ Ask in plain words — "what's on my calendar today?", "summarise my unread
 mail", "create a task and assign it to Dana". The bundled
 [workspace skill](skills/ambiguous-workspace/SKILL.md) tells Claude how to work
 in Ambiguous; run it directly as `/ambiguous:ambiguous-workspace`.
-
-More setup options are in the
-[repository README](https://github.com/ambiguous-ai/plugins#claude-code).
 
 MIT licensed. See [LICENSE](LICENSE).
