@@ -17,7 +17,7 @@ The plugin bundles the Ambiguous MCP connector. The first time Claude uses it,
 sign in to Ambiguous in your browser. Ambiguous Workspace is free for up to 5
 teammates. To use the `ambiguous` CLI instead, get connection
 instructions from your workspace's
-[Settings → Connect](https://app.ambiguous.ai/settings/connect).
+[Connect your AI](https://app.ambiguous.ai/agents/connect).
 
 ## Use
 
