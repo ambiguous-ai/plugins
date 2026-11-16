@@ -1,33 +1,37 @@
 #!/usr/bin/env bash
-# One skill, two plugins.
+# The plugin skill is the served operating guide, https://www.ambiguous.ai/skill.md.
 #
 # Source and maintenance commands: AGENTS.md.
-# Each client discovers skills inside its own package directory.
+# Each client discovers skills inside its own package directory, and the
+# portable package reads skills/ at the root.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-SRC="skills/ambiguous-workspace/SKILL.md"
+SOURCE_URL="https://www.ambiguous.ai/skill.md"
 TARGETS=(
-  "plugins/ambiguous-claude-code/skills/ambiguous-workspace/SKILL.md"
-  "plugins/ambiguous-codex/skills/ambiguous-workspace/SKILL.md"
+  "skills/ambiguous/SKILL.md"
+  "plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md"
+  "plugins/ambiguous-codex/skills/ambiguous/SKILL.md"
 )
 
-[ -f "$SRC" ] || { echo "sync-skills: missing source $SRC" >&2; exit 1; }
+expected=$(mktemp)
+trap 'rm -f "$expected"' EXIT
+curl --fail --silent --show-error --location "$SOURCE_URL" > "$expected"
 
 if [ "${1:-}" = "--check" ]; then
   status=0
   for t in "${TARGETS[@]}"; do
-    if ! cmp -s "$SRC" "$t"; then
-      echo "sync-skills: STALE — $t differs from $SRC" >&2
+    if ! cmp -s "$expected" "$t"; then
+      echo "sync-skills: STALE — $t differs from $SOURCE_URL" >&2
       status=1
     fi
   done
-  [ $status -eq 0 ] && echo "sync-skills: OK — ${#TARGETS[@]} copies match $SRC"
+  [ $status -eq 0 ] && echo "sync-skills: OK — ${#TARGETS[@]} copies match $SOURCE_URL"
   exit $status
 fi
 
 for t in "${TARGETS[@]}"; do
   mkdir -p "$(dirname "$t")"
-  cp "$SRC" "$t"
+  cp "$expected" "$t"
   echo "sync-skills: wrote $t"
 done

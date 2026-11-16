@@ -23,7 +23,7 @@ instructions from your workspace's
 
 Ask in plain words — "what's on my calendar today?", "summarise my unread
 mail", "create a task and assign it to Dana". The bundled
-[workspace skill](skills/ambiguous-workspace/SKILL.md) tells Claude how to work
-in Ambiguous; run it directly as `/ambiguous:ambiguous-workspace`.
+[workspace skill](skills/ambiguous/SKILL.md) tells Claude how to work
+in Ambiguous; run it directly as `/ambiguous:ambiguous`.
 
 MIT licensed. See [LICENSE](LICENSE).
