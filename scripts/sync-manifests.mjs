@@ -22,6 +22,7 @@ const anthropicListing = server => `${server.url}/anthropic`;
 const privacyPolicyURL = `${source.homepage}/legal/privacy`;
 const termsOfServiceURL = `${source.homepage}/legal/terms`;
 const supportURL = `${source.homepage}/support`;
+const documentationURL = `${source.homepage}/docs`;
 const outputs = new Map([
   ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', {
     ...plugin,
@@ -30,6 +31,7 @@ const outputs = new Map([
     privacyPolicyUrl: privacyPolicyURL,
     termsOfServiceUrl: termsOfServiceURL,
     supportUrl: supportURL,
+    documentationUrl: documentationURL,
   }],
   ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {
     ...plugin,
