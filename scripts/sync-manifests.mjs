@@ -12,12 +12,13 @@ const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const source = read('plugin.json');
 const shared = ['name', 'version', 'description', 'author', 'homepage', 'repository', 'license', 'keywords'];
 const plugin = Object.fromEntries(shared.map(field => [field, source[field]]));
-const clientMcp = {
+const clientMcp = (url = server => server.url) => ({
   mcpServers: Object.fromEntries(Object.entries(read('mcp.json').mcpServers).map(([name, server]) => [
     name,
-    { ...server, type: server.type === 'streamable-http' ? 'http' : server.type },
+    { ...server, type: server.type === 'streamable-http' ? 'http' : server.type, url: url(server) },
   ])),
-};
+});
+const anthropicListing = server => `${server.url}/anthropic`;
 const privacyPolicyURL = `${source.homepage}/legal/privacy`;
 const termsOfServiceURL = `${source.homepage}/legal/terms`;
 const supportURL = `${source.homepage}/support`;
@@ -79,8 +80,8 @@ const outputs = new Map([
       category: 'Productivity',
     }],
   }],
-  ['plugins/ambiguous-claude-code/.mcp.json', clientMcp],
-  ['plugins/ambiguous-codex/.mcp.json', clientMcp],
+  ['plugins/ambiguous-claude-code/.mcp.json', clientMcp(anthropicListing)],
+  ['plugins/ambiguous-codex/.mcp.json', clientMcp()],
 ]);
 
 let stale = false;
