@@ -1,4 +1,5 @@
 # Generated copies of https://www.ambiguous.ai/skill.md (scripts/sync-skills.sh).
+skills/ambiguous/SKILL.md linguist-generated=true
 plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md linguist-generated=true
 plugins/ambiguous-codex/skills/ambiguous/SKILL.md linguist-generated=true
 
