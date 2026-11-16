@@ -1,6 +1,6 @@
-# Generated copies; review skills/ambiguous-workspace/SKILL.md instead.
-plugins/ambiguous-claude-code/skills/ambiguous-workspace/SKILL.md linguist-generated=true
-plugins/ambiguous-codex/skills/ambiguous-workspace/SKILL.md linguist-generated=true
+# Generated copies of https://www.ambiguous.ai/skill.md (scripts/sync-skills.sh).
+plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md linguist-generated=true
+plugins/ambiguous-codex/skills/ambiguous/SKILL.md linguist-generated=true
 
 # Generated manifests; review plugin.json and scripts/sync-manifests.mjs instead.
 plugin.json linguist-generated=false

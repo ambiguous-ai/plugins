@@ -13,7 +13,7 @@ Each kind of guidance has one source:
 
 Regenerate skill copies with `./scripts/sync-skills.sh` and manifests with
 `node scripts/sync-manifests.mjs`. Edit the operating guide in the workspace
-repository, never here; the sync only renames the skill to `ambiguous-workspace`. GitHub collapses the generated outputs;
+repository, never here; the sync copies it unchanged. GitHub collapses the generated outputs;
 review the sources listed above.
 
 ## Contributor checks before opening a PR

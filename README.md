@@ -17,7 +17,7 @@ claude plugin install ambiguous
 ```
 
 In a running session, run `/reload-plugins`. The skill is
-`/ambiguous:ambiguous-workspace`.
+`/ambiguous:ambiguous`.
 
 ### Codex
 

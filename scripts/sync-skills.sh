@@ -8,19 +8,15 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 SOURCE_URL="https://www.ambiguous.ai/skill.md"
-SKILL_NAME="ambiguous-workspace"
 TARGETS=(
-  "skills/ambiguous-workspace/SKILL.md"
-  "plugins/ambiguous-claude-code/skills/ambiguous-workspace/SKILL.md"
-  "plugins/ambiguous-codex/skills/ambiguous-workspace/SKILL.md"
+  "skills/ambiguous/SKILL.md"
+  "plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md"
+  "plugins/ambiguous-codex/skills/ambiguous/SKILL.md"
 )
 
 expected=$(mktemp)
 trap 'rm -f "$expected"' EXIT
-curl --fail --silent --show-error --location "$SOURCE_URL" \
-  | awk -v name="$SKILL_NAME" 'NR > 1 && !renamed && /^name: / { print "name: " name; renamed = 1; next } { print }' \
-  > "$expected"
-grep -q "^name: $SKILL_NAME$" "$expected" || { echo "sync-skills: $SOURCE_URL has no name line to set" >&2; exit 1; }
+curl --fail --silent --show-error --location "$SOURCE_URL" > "$expected"
 
 if [ "${1:-}" = "--check" ]; then
   status=0
