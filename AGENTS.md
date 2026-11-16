@@ -4,7 +4,7 @@ Each kind of guidance has one source:
 
 | Owns | Source |
 | --- | --- |
-| Agent operating instructions | `skills/ambiguous-workspace/SKILL.md` |
+| Agent operating instructions | https://www.ambiguous.ai/skill.md, copied into every package by `./scripts/sync-skills.sh` |
 | Shared plugin metadata | `plugin.json` |
 | Shared MCP connection | `mcp.json` |
 | Client-specific metadata and package paths | `scripts/sync-manifests.mjs` |
@@ -12,7 +12,8 @@ Each kind of guidance has one source:
 | Repository maintenance | This file |
 
 Regenerate skill copies with `./scripts/sync-skills.sh` and manifests with
-`node scripts/sync-manifests.mjs`. GitHub collapses the generated outputs;
+`node scripts/sync-manifests.mjs`. Edit the operating guide in the workspace
+repository, never here; the sync only renames the skill to `ambiguous-workspace`. GitHub collapses the generated outputs;
 review the sources listed above.
 
 ## Contributor checks before opening a PR
