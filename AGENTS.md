@@ -1,5 +1,9 @@
 # Maintaining Ambiguous plugins
 
+The Claude Code plugin lives in [ambiguous-ai/claude-plugin](https://github.com/ambiguous-ai/claude-plugin);
+this marketplace's Claude Code entry installs it from there. This repository holds the portable,
+Codex, Cursor and Grok Bot packages.
+
 Each kind of guidance has one source:
 
 | Owns | Source |
@@ -22,7 +26,6 @@ review the sources listed above.
 ./scripts/sync-skills.sh --check
 node scripts/sync-manifests.mjs --check
 claude plugin validate .
-claude plugin validate ./plugins/ambiguous-claude-code
 git diff --check
 ```
 

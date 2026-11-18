@@ -10,7 +10,6 @@ cd "$(dirname "$0")/.."
 SOURCE_URL="https://www.ambiguous.ai/skill.md"
 TARGETS=(
   "skills/ambiguous/SKILL.md"
-  "plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md"
   "plugins/ambiguous-codex/skills/ambiguous/SKILL.md"
 )
 

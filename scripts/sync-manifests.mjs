@@ -12,27 +12,16 @@ const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const source = read('plugin.json');
 const shared = ['name', 'version', 'description', 'author', 'homepage', 'repository', 'license', 'keywords'];
 const plugin = Object.fromEntries(shared.map(field => [field, source[field]]));
-const clientMcp = (url = server => server.url) => ({
+const clientMcp = () => ({
   mcpServers: Object.fromEntries(Object.entries(read('mcp.json').mcpServers).map(([name, server]) => [
     name,
-    { ...server, type: server.type === 'streamable-http' ? 'http' : server.type, url: url(server) },
+    { ...server, type: server.type === 'streamable-http' ? 'http' : server.type },
   ])),
 });
-const anthropicListing = server => `${server.url}/anthropic`;
 const privacyPolicyURL = `${source.homepage}/legal/privacy`;
 const termsOfServiceURL = `${source.homepage}/legal/terms`;
 const supportURL = `${source.homepage}/support`;
-const documentationURL = `${source.homepage}/docs`;
 const outputs = new Map([
-  ['plugins/ambiguous-claude-code/.claude-plugin/plugin.json', {
-    ...plugin,
-    mcpServers: './.mcp.json',
-    icon: './.claude-plugin/icon.png',
-    privacyPolicyUrl: privacyPolicyURL,
-    termsOfServiceUrl: termsOfServiceURL,
-    supportUrl: supportURL,
-    documentationUrl: documentationURL,
-  }],
   ['plugins/ambiguous-codex/.codex-plugin/plugin.json', {
     ...plugin,
     skills: './skills/',
@@ -64,9 +53,8 @@ const outputs = new Map([
     description: source.description,
     plugins: [{
       name: source.name,
-      source: './plugins/ambiguous-claude-code',
+      source: { source: 'github', repo: 'ambiguous-ai/claude-plugin' },
       description: source.description,
-      version: source.version,
       category: 'productivity',
       tags: ['productivity', 'crm', 'tasks', 'docs', 'wiki', 'calendar', 'mail', 'chat', 'workspace', 'cli'],
     }],
@@ -82,7 +70,6 @@ const outputs = new Map([
       category: 'Productivity',
     }],
   }],
-  ['plugins/ambiguous-claude-code/.mcp.json', clientMcp(anthropicListing)],
   ['plugins/ambiguous-codex/.mcp.json', clientMcp()],
 ]);
 
