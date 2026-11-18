@@ -9,9 +9,11 @@
   "plugins": [
     {
       "name": "ambiguous",
-      "source": "./plugins/ambiguous-claude-code",
+      "source": {
+        "source": "github",
+        "repo": "ambiguous-ai/claude-plugin"
+      },
       "description": "Work in an Ambiguous Workspace — docs, sheets, slides, chat, mail, drive, tasks, CRM, forms, calendar and wiki — using MCP or CLI.",
-      "version": "0.5.7",
       "category": "productivity",
       "tags": [
         "productivity",

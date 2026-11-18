@@ -1,14 +1,11 @@
 # Generated copies of https://www.ambiguous.ai/skill.md (scripts/sync-skills.sh).
 skills/ambiguous/SKILL.md linguist-generated=true
-plugins/ambiguous-claude-code/skills/ambiguous/SKILL.md linguist-generated=true
 plugins/ambiguous-codex/skills/ambiguous/SKILL.md linguist-generated=true
 
 # Generated manifests; review plugin.json and scripts/sync-manifests.mjs instead.
 plugin.json linguist-generated=false
-plugins/ambiguous-claude-code/.claude-plugin/plugin.json linguist-generated=true
 plugins/ambiguous-codex/.codex-plugin/plugin.json linguist-generated=true
 .claude-plugin/marketplace.json linguist-generated=true
 .agents/plugins/marketplace.json linguist-generated=true
 mcp.json linguist-generated=false
-plugins/ambiguous-claude-code/.mcp.json linguist-generated=true
 plugins/ambiguous-codex/.mcp.json linguist-generated=true

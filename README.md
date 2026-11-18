@@ -11,13 +11,17 @@ Ambiguous Workspace is free for up to 5 teammates.
 
 ### Claude Code
 
+The Claude Code plugin lives in
+[ambiguous-ai/claude-plugin](https://github.com/ambiguous-ai/claude-plugin):
+
 ```bash
-claude plugin marketplace add ambiguous-ai/plugins
-claude plugin install ambiguous
+claude plugin marketplace add ambiguous-ai/claude-plugin
+claude plugin install ambiguous@ambiguous-ai
 ```
 
-In a running session, run `/reload-plugins`. The skill is
-`/ambiguous:ambiguous`.
+If you already added this marketplace, keep it: its Claude Code entry now
+installs the plugin from that repository. In a running session, run
+`/reload-plugins`. The skill is `/ambiguous:ambiguous`.
 
 ### Codex
 
